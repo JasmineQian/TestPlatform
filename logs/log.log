@@ -1,0 +1,10 @@
+[2019-05-22 15:21:20.030] [main][INFO][com.example.demo.DemoApplication][logStarting] line:[50]-> Starting DemoApplication on jasqia7490 with PID 16492 (D:\000_Mark\TestPlatfrom_github\target\classes started by jasqia in D:\000_Mark\TestPlatfrom_github)
+[2019-05-22 15:21:20.032] [main][DEBUG][com.example.demo.DemoApplication][logStarting] line:[53]-> Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+[2019-05-22 15:21:20.033] [main][INFO][com.example.demo.DemoApplication][logStartupProfileInfo] line:[675]-> No active profile set, falling back to default profiles: default
+[2019-05-22 15:21:23.371] [main][INFO][com.example.demo.DemoApplication][logStarted] line:[59]-> Started DemoApplication in 3.932 seconds (JVM running for 5.621)
+[2019-05-22 15:21:44.011] [http-nio-8083-exec-3][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-22 03:21:44
+[2019-05-22 15:21:44.011] [http-nio-8083-exec-3][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
+[2019-05-22 15:21:45.624] [http-nio-8083-exec-7][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-22 03:21:45
+[2019-05-22 15:21:45.624] [http-nio-8083-exec-7][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
+[2019-05-22 15:21:45.720] [http-nio-8083-exec-8][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-22 03:21:45
+[2019-05-22 15:21:45.720] [http-nio-8083-exec-8][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}

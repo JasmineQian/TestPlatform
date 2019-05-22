@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>修改页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Case管理页面</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">修改测试任务的信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <form th:action="@{/TaskUpdate}" method="post">
+                                <input type="hidden" name="taskid" th:value="${task.taskid}"/>
+                                <tr>
+                                    <td>项目名称</td>
+                                    <td input="text" th:text="${task.task_project}"></td>
+                                </tr>
+                                <tr>
+                                    <td>CR编号</td>
+                                    <td><input maxlength="40" type="text" name = "crname" th:value="${task.crname}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>测试类型</td><td>
+
+                                    <select name="task_tid">
+                                        <option th:each="testType:${testType}" th:value="${testType.id}"
+                                                th:text="${testType.name}"
+                                                th:selected="${task.task_tid}==${testType.id}"></option>
+                                    </select></td>
+
+                                </tr>
+                                <tr>
+                                    <td>任务名称</td>
+                                    <td><input maxlength="40" type="text" name = "taskname" th:value="${task.taskname}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>简单描述</td>
+                                    <td><input name = "description" type="text" th:value="${task.description}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>详细描述</td>
+                                    <td ><textarea rows="10" th:text="${task.details}" name="details"
+                                                  style="margin: 0px; width: 1000px;"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>任务备注</td>
+                                    <td><textarea rows="10"  th:text="${task.note}"  name="note"
+                                                  style="margin: 0px; width: 1000px;"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="submit" value="确认修改" class="btn btn-info"></td>
+                                    <td><a th:href="@{/findAllTask}" input="button" class="btn btn-info">回到首页</a>
+                                    </td>
+                            </form>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

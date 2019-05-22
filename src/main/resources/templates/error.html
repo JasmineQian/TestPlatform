@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>抱歉出错了</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" type="text/css"/>
+</head>
+
+<body align="center">
+<div th:insert="~{header :: nav}"></div>
+  <h1></h1>
+
+  <h1>抱歉出错了</h1>
+<div>
+      <a th:href="@{/listpage(pagenum=1)}"><input type="button" value="还剩3秒，点我立即跳转" id="txt"/></a>
+</div>
+
+
+<script>
+    window.onload = function () {
+        var x = document.getElementById("txt");
+        var timer = setInterval(func, 1000);
+        var time = 3;
+
+        function func() {
+            x.value = "还剩" + time + "秒，点我立即跳转";
+            time--;
+            if (time < 0) {
+                clearInterval(timer);
+                x.setAttribute("class", "one");
+                x.value = "即将跳转loading...";
+                window.location.href = "/listpage";
+            }
+        }
+    }
+</script>
+</body>
+</html>

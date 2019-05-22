@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property scope="context" name="context_name" value="logs" />
+	<property scope="context" name="host_name" value="${HOSTNAME}" />
+	<springProperty scope="context" name="log_path" source="logging.path"/>
+	<jmxConfigurator />
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度，%msg：日志消息，%n是换行符 -->
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread][%p][%c][%M] line:[%L]-> %m%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- log -->
+	<appender name="rollingfileappender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log_path}/${context_name}/log.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log_path}/${context_name}/log_%d{yyyy-MM-dd}.zip
+			</fileNamePattern>
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread][%p][%c][%M] line:[%L]-> %m%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+	</appender>
+
+	<appender name="errorfileappender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log_path}/${context_name}/error.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log_path}/${context_name}/error_%d{yyyy-MM-dd}.zip
+			</fileNamePattern>
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread][%p][%c][%M] line:[%L]-> %m%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+	</appender>
+
+	<appender name="filterfileappender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log_path}/${context_name}/filter.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log_path}/${context_name}/filter_%d{yyyy-MM-dd}.zip
+			</fileNamePattern>
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread][%p][%c][%M] line:[%L]-> %m%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+	</appender>
+
+	<appender name="debugfileappender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log_path}/${context_name}/debug.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log_path}/${context_name}/debug_%d{yyyy-MM-dd}.zip
+			</fileNamePattern>
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+	</appender>
+
+	<logger name="com.example.demo" level="INFO" additivity="false">
+		<appender-ref ref="rollingfileappender" />
+		<appender-ref ref="errorfileappender" />
+	</logger>
+
+	<logger name="com.example.demo.controller" level="INFO" additivity="false">
+		<appender-ref ref="filterfileappender" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="console" />
+	</root>
+
+</configuration>

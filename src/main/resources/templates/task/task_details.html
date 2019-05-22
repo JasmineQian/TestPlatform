@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>详情页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">测试用例管理系统</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">测试任务信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <tr>
+                                <td>TaskID</td>
+                                <td input="text" th:text="${task.taskid}"></td>
+                            </tr>
+                            <tr>
+                                <td>项目名称</td>
+                                <td input="text" th:text="${task.task_project}"></td>
+                            </tr>
+                            <tr>
+                                <td>CR编号</td>
+                                <td input="text" th:text="${task.crname}"></td>
+                            </tr>
+                            <tr>
+                                <td>测试类型</td>
+                                <td input="text" th:text="${task.task_tname}"></td>
+                            </tr>
+                            <tr>
+                                <td>简单描述</td>
+                                <td input="text" th:text="${task.description}"></td>
+                            </tr>
+                            <tr>
+                                <td>测试用例</td>
+                                <td><a th:href="@{/findCaseByTaskId(taskId=${task.taskid})}" input="button" class="btn btn-info">查看测试用例</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>详细描述</td>
+                                <td><textarea onfocus=this.blur() rows="10" th:text="${task.details}"
+                                              style="margin: 0px; width: 1000px;"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>任务备注</td>
+                                <td><textarea onfocus=this.blur() rows="10"  th:text="${task.note}"
+                                              style="margin: 0px; width: 1000px;"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>创建时间</td>
+                                <td input="text" th:text="${task.creationdt}"></td>
+                            </tr>
+                            <tr>
+                                <td>更新时间</td>
+                                <td input="text" th:text="${task.updatedt}"></td>
+                            </tr>
+                            <tr>
+                                <td><a th:href="@{/tasktoUpdate(taskId=${task.taskid})}" input="button" class="btn btn-info">信息更新</a>
+                                </td>
+                                <td><a th:href="@{/findAllTask}" input="button" class="btn btn-info">回到首页</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

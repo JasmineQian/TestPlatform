@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>API接口更新页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">测试用例管理系统</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">API接口更新页面</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <form th:action="@{/apiInfoUpdate}" method="post">
+                                <input type="hidden" name="api_pid" th:value="${api.api_pid}"/>
+                                <input type="hidden" name="api_id" th:value="${api.api_id}"/>
+                            <tr>
+                                <td>API_ID</td>
+                                <td input="text" th:text="${api.api_id}"></td>
+                            </tr>
+                            <tr>
+                                <td>项目名称</td>
+                                <td input="text" name = "api_porjectname" th:text="${api.api_porjectname}"></td>
+                            </tr>
+                            <tr>
+                                <td>接口名称</td>
+                                <td><input type="text" name = "api_name" th:value="${api.api_name}" autocomplete="off"></td>
+                            </tr>
+                            <tr>
+                                <td>接口Hostname</td>
+                                <td><input type="text" name ="api_hostname"  th:value="${api.api_hostname}" autocomplete="off"></td>
+                            </tr>
+                            <tr>
+                                <td>接口路径</td>
+                                <td><input type="text" name = "api_path" th:value="${api.api_path}" autocomplete="off"></td>
+                            </tr>
+                            <tr>
+                                <td>详细描述</td>
+                                <td><textarea name="api_memo" rows="10" th:text="${api.api_memo}"
+                                              style="margin: 0px; width: 1000px;"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td><input type="submit" value="确认修改" class="btn btn-info"></td>
+                                <td><a th:href="@{/findApiById(api=${api.api_id})}" input="button" class="btn btn-info">回到接口信息页面</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>详情页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Bug管理系统</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Bug详细信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <tr>
+                                <td>BugID</td>
+                                <td input="text" th:text="${bug.id}"></td>
+                            </tr>
+                            <tr>
+                                <td>项目名称</td>
+                                <td input="text" th:text="${bug.pname}"></td>
+                            </tr>
+                            <tr>
+                                <td>CR名称</td>
+                                <td input="text" th:text="${bug.crname}"></td>
+                            </tr>
+                            <tr>
+                                <td>CR编号</td>
+                                <td input="text" th:text="${bug.crnum}"></td>
+                            </tr>
+                            <tr>
+                                <td>Task编号</td>
+                                <td input="text" th:text="${bug.tasknum}"></td>
+                            </tr>
+                            <tr>
+                                <td>测试类型</td>
+                                <td input="text" th:text="${bug.oname}"></td>
+                            </tr>
+                            <tr>
+                                <td>Bug状态</td>
+                                <td input="text" th:text="${bug.bugStatus}"></td>
+                            </tr>
+                            <tr>
+                                <td>测试人员</td>
+                                <td input="text" th:text="${bug.tester}"></td>
+                            </tr>
+                            <tr>
+                                <td>开发人员</td>
+                                <td input="text" th:text="${bug.developer}"></td>
+                            </tr>
+                            <tr>
+                                <td>简单描述</td>
+                                <td input="text" th:text="${bug.description}"></td>
+                            </tr>
+                            <tr>
+                                <td>详细描述</td>
+                                <td><textarea onfocus=this.blur() rows="10" cols="20" th:text="${bug.rca}"
+                                              style="margin: 0px; width: 1000px;"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>解决方案</td>
+                                <td><textarea onfocus=this.blur() rows="10" cols="20" th:text="${bug.solution}"
+                                              style="margin: 0px; width: 1000px;"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>创建时间</td>
+                                <td input="text" th:text="${bug.creationdt}"></td>
+                            </tr>
+                            <tr>
+                                <td>更新时间</td>
+                                <td input="text" th:text="${bug.updatedt}"></td>
+                            </tr>
+                            <tr>
+                                <td><a th:href="@{/toUpdate(BugListId=${bug.id})}" input="button" class="btn btn-info">信息更新</a>
+                                </td>
+                                <td><a th:href="@{/listpage(pageon=1)}" input="button" class="btn btn-info">回到首页</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

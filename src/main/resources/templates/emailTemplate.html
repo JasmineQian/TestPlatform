@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>详情页面</title>
+</head>
+
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Bug详细信息</h3>
+                    <h5 href="https://coe.acxiom.com.cn/bug/login">https://coe.acxiom.com.cn/bug/login</h5>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <table border="1">
+                            <tr>
+                                <td>项目名称</td>
+                                <td th:text="${pname}"></td>
+                            </tr>
+                            <tr>
+                                <td>CR类型</td>
+                                <td th:text="${crname}"></td>
+                            </tr>
+                            <tr>
+                                <td>CR编号</td>
+                                <td th:text="${crnum}"></td>
+                            </tr>
+                            <tr>
+                                <td>TASK编号</td>
+                                <td th:text="${tasknum}"></td>
+                            </tr>
+                            <tr>
+                                <td>测试类型</td>
+                                <td th:text="${oname}"></td>
+                            </tr>
+                            <tr>
+                                <td>Bug状态</td>
+                                <td th:text="${bugstatus}"></td>
+                            </tr>
+                            <tr>
+                                <td>简单描述</td>
+                                <td th:text="${bugdes}"></td>
+                            </tr>
+                            <tr>
+                                <td>详细描述</td>
+                                <td><textarea style="margin: 0px; width: 1000px;" rows="10" th:text="${rca}"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>解决方案</td>
+                                <td><textarea style="margin: 0px; width: 1000px;" rows="10" th:text="${solution}"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

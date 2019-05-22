@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>修改页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Case管理页面</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">修改测试任务的信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <form th:action="@{/UpdateCaseById}" method="post">
+                                <input type="hidden" name="case_id" th:value="${cc.case_id}"/>
+                                <tr>
+                                    <td>Case任务ID</td>
+                                    <td input="text" name= "case_taskid" th:text="${cc.case_taskid}"></td>
+                                </tr>
+                                <tr>
+                                    <td>Case任务名称</td>
+                                    <td input="text" name= "case_taskname" th:text="${cc.case_taskname}"></td>
+                                </tr>
+                                <tr>
+                                    <td>Case的序号</td>
+                                    <td><input name= "case_num" th:value="${cc.case_num}"></td>
+                                </tr>
+                                <tr>
+                                    <td>case_pirority</td>
+                                    <td><select name="case_pirority" th:value="${cc.case_pirority}" selected="selected">
+                                        <option th:each="pp:${caseProirities}" th:value="${pp.id}"
+                                                th:text="${pp.name}"
+                                                th:selected="${pp.id}==${cc.case_pirority}"></option>
+                                    </select></td>
+                                </tr>
+                                <tr>
+                                    <td>Case名称</td>
+                                    <td><input maxlength="40" name = "case_name" th:value="${cc.case_name}"></td>
+                                </tr>
+                                <tr>
+                                    <td>case_precondition</td>
+                                    <td><textarea name= "case_precondition" rows="10" th:text="${cc.case_precondition}"
+                                        style="margin: 0px; width: 1000px;"></textarea></td></td>
+                               </tr>
+                                <tr>
+                                    <td>case_assertion</td>
+                                    <td><textarea name= "case_assertion" rows="10" th:text="${cc.case_assertion}"
+                                                  style="margin: 0px; width: 1000px;"></textarea></td></td>
+                                </tr>
+                                <tr>
+                                    <td>是否通过</td>
+                                    <td><select name="case_pass_flag" th:value="${cc.case_pass_flag}" selected="selected">
+                                        <option th:each="pp:${casePasses}" th:value="${pp.id}"
+                                                th:text="${pp.name}"
+                                                th:selected="${pp.id}==${cc.case_pass_flag}"></option>
+                                    </select></td>
+                                </tr>
+                                <tr>
+                                    <td>case_body</td>
+                                    <td><textarea name= "case_body" rows="10" th:text="${cc.case_body}"
+                                                  style="margin: 0px; width: 1000px;"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>任务备注</td>
+                                    <td><textarea name= "case_memo" rows="10"  th:text="${cc.case_memo}"
+                                                  style="margin: 0px; width: 1000px;"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="submit" value="确认修改" class="btn btn-info"></td>
+                                    <td><a th:href="@{/findCaseByTaskId(taskId=${cc.case_taskid})}" input="button" class="btn btn-info">回到首页</a>
+                                    </td>
+                                </tr>
+                            </form>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

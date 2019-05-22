@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:white-space="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>API接口入参详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        .wordtoolong {
+            width: 700px;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .wordtoolong:hover {
+            width: 700px;
+            display: inline-block;
+            white-space: normal;
+            overflow: auto;
+        }
+    </style>
+
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" type="text/css"/>
+
+
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">测试用例管理系统</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">API接口入参详情
+                    <a th:href="@{/downloadcases(taskId=${infoBean.api_id})}" input="button"
+                       class="btn btn-danger">下载生成的测试数据</a></h3>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <table border="1" class="table table-striped table-bordered table-hover">
+
+
+                            <tr>
+                                <td>项目名称</td>
+                                <td input="text" th:text="${infoBean.api_porjectname}"></td>
+                                <td>接口名称</td>
+                                <td input="text" th:text="${infoBean.api_name}"></td>
+                                <td>接口路径</td>
+                                <td input="text" th:text="${infoBean.api_path}"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center"><a
+                                        th:href="@{/CheckMustVar(taskid=${infoBean.api_id})}"
+                                        value="" class="btn btn-info"
+                                        onclick="alert('请求传入的xx参数未传')">自动生成请求传入的必传参数未传的用例</a></td>
+                                <td colspan="2" align="center"><a
+                                        th:href="@{/CheckMustVarEmpty(taskid=${infoBean.api_id})}"
+                                        value="" class="btn btn-info"
+                                        onclick="alert('请求传入的xx参数是空字符串')">请求传入的xx参数是空字符串</a></td>
+                                <td colspan="2" align="center"><a
+                                        th:href="@{/CheckVarOverLength(taskid=${infoBean.api_id})}"
+                                        value="" class="btn btn-info"
+                                        onclick="alert('请求传入的xx参数超过最大长度')">请求传入的xx参数超过最大长度</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+            <div></div>
+            <div class="table-responsive">
+                <div class="row"></div>
+                <div class="row"></div>
+                <table class="table table-striped table-bordered table-hover">
+                    <tr border="1" display="inline-block">
+                        <th>入参序号</th>
+                        <th>入参名称</th>
+                        <th>入参必填性</th>
+                        <th>入参类型</th>
+                        <th>入参最大长度</th>
+                        <th>入参备注标记</th>
+                        <th>操作按钮</th>
+                    </tr>
+                    <tr th:each="cc:${var}" display="inline-block">
+                        <td th:text="${cc.num}"></td>
+                        <td th:text="${cc.val}"></td>
+                        <td th:text="${cc.InputFlag}"></td>
+                        <td th:text="${cc.InputDataType}"></td>
+                        <td th:text="${cc.InputLenght}"></td>
+                        <td th:text="${cc.InputNote}"></td>
+                        <td>
+                            <a th:href="@{/delAPiVarById(id=${cc.num})}" input="button" class="btn btn-danger"
+                               onclick="alert('确认删除此测试用例吗？')">删除</a>
+                        </td>
+                    </tr>
+                </table>
+                <!-- <div align="right" th:include="casepage :: page" url="/bug/findApiCaseById"></div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="panel-footer">
+            <a align="center">CopyRight 测试任务和测试用例管理系统</a>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>

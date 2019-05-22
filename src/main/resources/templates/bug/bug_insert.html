@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>修改页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Bug管理系统</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">新增Bug记录</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <form th:action="@{/create}" method="post">
+
+                                <tr>
+                                    <td>项目名称</td>
+                                    <td>
+                                        <select name="pname">
+                                            <option th:each="projects:${projects}" th:value="${projects.pid}"
+                                                    th:text="${projects.pname}"></option>
+                                        </select></td>
+                                </tr>
+                                <td>CR类型</td>
+                                <td><select name="crname">
+                                    <option th:each="crtype:${crtype}" th:value="${crtype.id}"
+                                            th:text="${crtype.name}"></option>
+                                </select></td>
+
+                                </tr>
+                                <tr>
+                                    <td>CR编号</td>
+                                    <td><input maxlength="10" type="text" name="crnum" autocomplete="off"></td>
+                                </tr>
+                                <tr>
+                                    <td>TASK编号</td>
+                                    <td><input maxlength="10" type="text" name="tasknum" autocomplete="off"></td>
+                                </tr>
+                                <tr>
+                                    <td>测试类型</td>
+                                    <td>
+                                        <select name="oname">
+                                            <option th:each="testType:${testType}" th:value="${testType.id}"
+                                                    th:text="${testType.name}"></option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td>bug状态</td>
+                                    <td>
+                                        <select name="bugStatus">
+                                            <option th:each="bugStatus:${bugStatus}" th:value="${bugStatus.bugid}"
+                                                    th:text="${bugStatus.bugStatus}"></option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td>测试人员</td>
+                                    <td><select name="tester">
+                                        <option th:each="testers:${testers}" th:value="${testers.eid}"
+                                                th:text="${testers.ename}"></option>
+                                    </select></td>
+                                </tr>
+                                <tr>
+                                    <td>开发人员</td>
+                                    <td><select name="developer">
+                                        <option th:each="developers:${developers}" th:value="${developers.eid}"
+                                                th:text="${developers.ename}"></option>
+                                    </select></td>
+                                </tr>
+                                <tr>
+                                    <td>简单描述</td>
+                                    <td><input maxlength="40" autocomplete="off" type="text" name="description" style="margin: 0px; width: 1005px;"></td>
+                                </tr>
+                                <tr>
+                                    <td>详细描述</td>
+                                    <td><textarea rows="10" cols="20" type="text" name="rca" style="margin: 0px; width: 1005px;"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>解决方案</td>
+                                    <td><textarea rows="10" cols="20" type="text" name="solution" style="margin: 0px; width: 1005px; height: 84px;"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="submit" value="确认新增" class="btn btn-info"></td>
+                                    <td><a th:href="@{/listpage(pageon=1)}" input="button" class="btn btn-info">回到首页</a></td>
+                                </tr>
+                            </form>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

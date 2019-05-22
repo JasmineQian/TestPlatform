@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>API接口详情页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">测试用例管理系统</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">API接口信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <tr>
+                                <td>API_ID</td>
+                                <td input="text" th:text="${api.api_id}"></td>
+                            </tr>
+                            <tr>
+                                <td>项目名称</td>
+                                <td input="text" th:text="${api.api_porjectname}"></td>
+                            </tr>
+                            <tr>
+                                <td>接口名称</td>
+                                <td input="text" th:text="${api.api_name}"></td>
+                            </tr>
+                            <tr>
+                                <td>接口Hostname</td>
+                                <td input="text" th:text="${api.api_hostname}"></td>
+                            </tr>
+                            <tr>
+                                <td>接口路径</td>
+                                <td input="text" th:text="${api.api_path}"></td>
+                            </tr>
+                            <tr>
+                                <td>接口相关</td>
+                                <td><a th:href="@{/findApiVarById(taskId=${api.api_id})}" input="button" class="btn btn-info">查看API接口中变量信息</a>
+                                    <a th:href="@{/findApiCaseById(taskId=${api.api_id})}" input="button" class="btn btn-info">查看API接口的测试用例</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>详细描述</td>
+                                <td><textarea onfocus=this.blur() rows="10" th:text="${api.api_memo}"
+                                              style="margin: 0px; width: 1000px;"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>创建时间</td>
+                                <td input="text" th:text="${api.api_creatdt}"></td>
+                            </tr>
+                            <tr>
+                                <td>更新时间</td>
+                                <td input="text" th:text="${api.api_updatedt}"></td>
+                            </tr>
+                            <tr>
+                                <td><a th:href="@{/apiInfotoUpdate(api=${api.api_id})}" input="button" class="btn btn-info">信息更新</a>
+                                </td>
+                                <td><a th:href="@{/findAllApi}" input="button" class="btn btn-info">回到首页</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

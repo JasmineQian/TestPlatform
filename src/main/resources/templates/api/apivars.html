@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>API属性新增页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">API属性新增页面</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">测试用例的详细信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <tr>
+                                <td>项目名称</td>
+                                <td input="text" th:text="${cc.case_id}"></td>
+                            </tr>
+                            <tr>
+                                <td>CR编号</td>
+                                <td input="text" th:text="${cc.case_taskid}"></td>
+                            </tr>
+                            <tr>
+                                <td>Task编号</td>
+                                <td input="text" th:text="${cc.case_num}"></td>
+                            </tr>
+                            <tr>
+                                <td>接口名称</td>
+                                <td input="text" th:text="${cc.case_taskname}"></td>
+                            </tr>
+                            <tr>
+                                <td>序号</td>
+                                <td>入参名称</td>
+                                <td>必传标记</td>
+                                <td>字符类型</td>
+                                <td>入参值范围</td>
+                                <td>入参最大长度</td>
+                                <td>入参描述</td>
+                            </tr>
+                            <tr><td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                            <tr>
+                                <td><a th:href="@{/casetoUpdate(caseId=${cc.case_id})}" input="button" class="btn btn-info">信息更新</a>
+                                </td>
+                                <td><a th:href="@{/findAllTask}" input="button" class="btn btn-info">回到测试任务页面</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

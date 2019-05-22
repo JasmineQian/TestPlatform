@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>增加新的API接口</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">测试平台管理系统</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">增加新的API接口</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <form th:action="@{/apiCasecreate}" method="post">
+                            <tr>
+                                <td>项目名称</td>
+                           <td>
+                            <select name="api_pid">
+                                <option th:each="projects:${projects}" th:value="${projects.pid}"
+                                        th:text="${projects.pname}"></option>
+                            </select></td>
+                            <tr>
+                                <td>接口名称</td>
+                                <td><input type="text" autocomplete="off" name="api_name" th:required="请输入接口名称"></td>
+                            </tr>
+                            <tr>
+                                <td>接口Hostname</td>
+                                <td><input type="text" autocomplete="off" name="api_hostname" th:required="请输入接口Hostname"></td>
+                            </tr>
+                            <tr>
+                                <td>接口路径</td>
+                                <td><input type="text" autocomplete="off" name="api_path" th:required="请输入接口路径"></td>
+                            </tr>
+                            <tr>
+                                <td>详细描述</td>
+                                <td><textarea rows="10" name="api_memo"
+                                              style="margin: 0px; width: 1000px;"></textarea></td>
+                            </tr>
+                                <tr>
+                                    <td><input type="submit" value="确认新增" class="btn btn-info"></td>
+                                    <td><a th:href="@{/findAllApi}" input="button" class="btn btn-info">回到首页</a></td>
+                                </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

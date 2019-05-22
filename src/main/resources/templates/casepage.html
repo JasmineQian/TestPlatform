@@ -1,0 +1,32 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="page">
+    <div id="page"></div>
+    <link rel="stylesheet" th:href="@{css/style.css}"  />
+    <script type="text/javascript" th:src="@{js/page.js}"></script>
+    <script th:inline="javascript">
+    var size=[[${page.pagecount}]];
+    var tt=[[${page.var}]];
+
+    if(size>1)
+        Pagination.Init(document.getElementById('page'), {
+            size: size, // pages size
+            page: [[${page.pageon}]],  // selected page
+            step: 3   // pages before and after current
+        });
+
+    function back(page_index){
+        if([[${page.pageon}]]==page_index)
+            return;
+        var url=document.getElementById('page').parentNode.getAttribute('url');
+        var tourl;
+        if(url.indexOf('?')>0)
+            tourl=url+'&pageon='+page_index+'&taskId='+tt;
+        else
+            tourl=url+'?pageon='+page_index+'&taskId='+tt;
+        window.location.href=tourl;
+    }
+    </script>
+</div>
+</html>

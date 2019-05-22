@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>新增测试任务</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">测试用例管理系统</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">新增测试任务</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <form th:action="@{/TaskCreation}" method="post">
+
+                                <tr>
+                                    <td>项目名称</td>
+                                    <td>
+                                        <select name="task_pid">
+                                            <option th:each="projects:${projects}" th:value="${projects.pid}"
+                                                    th:text="${projects.pname}"></option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td>测试类型</td>
+                                    <td>
+                                        <select name="task_tid">
+                                            <option th:each="testType:${testType}" th:value="${testType.id}"
+                                                    th:text="${testType.name}"></option>
+                                        </select></td>
+                                </tr>
+
+                                <tr>
+                                    <td>CR编号</td>
+                                    <td><input maxlength="40" autocomplete="off" type="text" name="crname" style="margin: 0px; width: 1005px;"></td>
+
+                                </tr>
+                                <tr>
+                                    <td>任务名称</td>
+                                    <td><input maxlength="40" autocomplete="off" type="text" name="taskname" style="margin: 0px; width: 1005px;"></td>
+
+                                </tr>
+                                <tr>
+                                    <td>简单描述</td>
+                                    <td><input maxlength="40" autocomplete="off" type="text" name="description" style="margin: 0px; width: 1005px;"></td>
+                                </tr>
+                                <tr>
+                                    <td>详细描述</td>
+                                    <td><textarea rows="10" type="text" name="details" style="margin: 0px; width: 1005px;"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>备注信息</td>
+                                    <td><textarea rows="10" type="text" name="note" style="margin: 0px; width: 1005px; height: 84px;"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="submit" value="确认新增" class="btn btn-info"></td>
+                                    <td><a th:href="@{/findAllTask}" input="button" class="btn btn-info">回到首页</a></td>
+                                </tr>
+                            </form>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
