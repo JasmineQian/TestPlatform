@@ -47,3 +47,5 @@ public class BugNotifyImpl implements BugNotify {
         return lists;
     }
 }
+
+
