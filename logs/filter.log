@@ -243,3 +243,10 @@
 [2019-05-28 15:31:06.530] [http-nio-8083-exec-6][INFO][com.example.demo.controller.CaseController][casetoUpdate] line:[168]-> 转向==============================================更新
 [2019-05-28 15:31:09.266] [http-nio-8083-exec-7][INFO][com.example.demo.controller.CaseController][UpdateCaseById] line:[145]-> 根据ID更新Case任务成功！
 [2019-05-28 15:31:13.778] [http-nio-8083-exec-3][INFO][com.example.demo.controller.CaseController][findCaseByTaskId] line:[74]-> 查询成功！
+[2019-05-28 22:33:50.026] [http-nio-8083-exec-6][INFO][com.example.demo.controller.TaskController][findTaskById] line:[42]-> 根据Task的ID来查找Task信息
+[2019-05-28 22:33:50.112] [http-nio-8083-exec-6][INFO][com.example.demo.controller.TaskController][findTaskById] line:[48]-> 查询成功！
+[2019-05-28 22:33:52.979] [http-nio-8083-exec-7][INFO][com.example.demo.controller.CaseController][findCaseByTaskId] line:[74]-> 查询成功！
+[2019-05-28 22:34:10.855] [http-nio-8083-exec-6][INFO][com.example.demo.controller.BugController][insert] line:[164]-> 转页面
+[2019-05-28 22:35:27.909] [http-nio-8083-exec-8][INFO][com.example.demo.controller.BugController][insert] line:[164]-> 转页面
+[2019-05-28 22:45:00.001] [scheduling-1][ERROR][com.example.demo.controller.MailScheduler][doTask] line:[43]-> 我要开始发邮件啦,现在的时间为:Tue May 28 22:45:00 CST 2019
+[2019-05-28 23:00:00.002] [scheduling-1][ERROR][com.example.demo.controller.MailScheduler][doTask] line:[43]-> 我要开始发邮件啦,现在的时间为:Tue May 28 23:00:00 CST 2019
