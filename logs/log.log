@@ -297,3 +297,11 @@
 [2019-05-28 23:02:23.539] [http-nio-8083-exec-2][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
 [2019-05-28 23:02:31.714] [http-nio-8083-exec-9][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-28 23:02:31
 [2019-05-28 23:02:31.714] [http-nio-8083-exec-9][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
+[2019-05-28 23:04:05.463] [main][INFO][com.example.demo.DemoApplication][logStarting] line:[50]-> Starting DemoApplication on jasqia7490 with PID 18744 (D:\000_Mark\TestPlatfrom_github\target\classes started by jasqia in D:\000_Mark\TestPlatfrom_github)
+[2019-05-28 23:04:05.465] [main][DEBUG][com.example.demo.DemoApplication][logStarting] line:[53]-> Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+[2019-05-28 23:04:05.466] [main][INFO][com.example.demo.DemoApplication][logStartupProfileInfo] line:[679]-> The following profiles are active: active
+[2019-05-28 23:04:08.956] [main][INFO][com.example.demo.DemoApplication][logStarted] line:[59]-> Started DemoApplication in 3.998 seconds (JVM running for 4.802)
+[2019-05-28 23:04:23.742] [http-nio-8083-exec-3][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-28 23:04:23
+[2019-05-28 23:04:23.742] [http-nio-8083-exec-3][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
+[2019-05-28 23:04:23.901] [http-nio-8083-exec-6][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-28 23:04:23
+[2019-05-28 23:04:23.902] [http-nio-8083-exec-6][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
