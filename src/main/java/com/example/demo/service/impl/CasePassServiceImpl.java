@@ -22,7 +22,7 @@ public class CasePassServiceImpl implements CasePassService {
 
     @Override
     public List<CasePass> findAllPass() {
-        String sql="select casepassflag_id,casepassflag_name from qa_casepassflag where casepassflag_deleted_flag = 0";
+        String sql="select casepassflag_id,casepassflag_name from qa_casepassflag order by casepassflag_id";
         List<CasePass> lists = jdbcTemplate.query(sql,new CasePassRowMapper());
         return lists;
 

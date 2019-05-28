@@ -47,6 +47,18 @@
                     <li>
                         <a class="hidden-md hidden-sm hidden-xs" th:href="@{/register}">注册页面</a>
                     </li>
+                    <li class="dropdown">
+                        <a th:href="@{/register}" class="dropdown-toggle" data-toggle='dropdown'>
+                            请下拉选择
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="hidden-lg hidden-md hidden-sm"><a th:href="@{/listpage(pagenum=1)}">Bug管理页面</a></li>
+                            <li class="hidden-lg hidden-md hidden-sm"><a th:href="@{/findAllTask}">Case管理页面</a></li>
+                            <li class="hidden-lg hidden-md"><a th:href="@{/findAllApi}">API测试用例自动生成</a></li>
+                            <li class="hidden-lg"><a th:href="@{/register}">注册页面</a></li>
+                        </ul>
+                    </li>
                 </ul>
 
 

@@ -31,13 +31,14 @@
                         <table border="1" class="table table-striped table-bordered table-hover">
                             <form th:action="@{/UpdateCaseById}" method="post">
                                 <input type="hidden" name="case_id" th:value="${cc.case_id}"/>
+                                <input type="hidden" name="case_taskid" th:value="${cc.case_taskid}"/>
                                 <tr>
                                     <td>Case任务ID</td>
-                                    <td input="text" name= "case_taskid" th:text="${cc.case_taskid}"></td>
+                                    <td input="text"  th:text="${cc.case_taskid}"></td>
                                 </tr>
                                 <tr>
                                     <td>Case任务名称</td>
-                                    <td input="text" name= "case_taskname" th:text="${cc.case_taskname}"></td>
+                                    <td input="text"  th:text="${cc.case_taskname}"></td>
                                 </tr>
                                 <tr>
                                     <td>Case的序号</td>

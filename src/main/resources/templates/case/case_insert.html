@@ -43,12 +43,16 @@
                                     <td input="text" th:text="${task.task_tname}"></td>
                                 </tr>
                                 <tr>
-                                    <td>Case的序号</td>
+                                    <td>Case的序号(*)</td>
                                     <td><input type="text" name= "case_num"></td>
                                 </tr>
                                 <tr>
                                     <td>Case的优先级</td>
-                                    <td><input type="text" name= "case_pirority"></td>
+                                    <td>
+                                    <select name="case_pirority">
+                                        <option th:each="case:${caseProirities}" th:value="${case.id}"
+                                                th:text="${case.name}"></option>
+                                    </select></td>
                                 </tr>
                                 <tr>
                                     <td>Case任务名称</td>
@@ -60,7 +64,11 @@
                                 </tr>
                                 <tr>
                                     <td>是否通过</td>
-                                    <td><input type="text" name="case_pass_flag"></td>
+                                    <td>
+                                    <select name="case_pass_flag">
+                                        <option th:each="casePasses:${casePasses}" th:value="${casePasses.id}"
+                                                th:text="${casePasses.name}"></option>
+                                    </select></td>
                                 </tr>
                                 <tr>
                                     <td>case_body</td>

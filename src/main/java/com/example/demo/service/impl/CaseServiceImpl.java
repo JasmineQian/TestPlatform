@@ -32,13 +32,13 @@ public class CaseServiceImpl implements CaseService {
 
         int start = (pageon - 1) * 20;
 
-        String sql= "SELECT CASE_ID,CASE_TASKID,TASK_NAME,CASE_NUM,CASE_PIRORITY,pirority_name,CASE_NAME,CASE_PRECONDITION,CASE_BODY,\n" +
-                "CASE_ASSERTION,CASE_PASSFLAG,CASEPASSFLAG_NAME,CASE_MEMO,CASE_CREATIONDT,CASE_UPDATEDT FROM QA_CASE\n" +
-                "JOIN QA_TASK ON TASK_ID = CASE_TASKID\n" +
-                "join qa_pirority on pirority_id = CASE_PIRORITY\n" +
-                "join QA_CASEPASSFLAG on CASEPASSFLAG_ID=CASE_PASSFLAG\n" +
-                "WHERE CASE_DELETED_FLAG =0 AND TASK_DELETED_FLAG = 0\n" +
-                "AND CASE_TASKID = ? ";
+        String sql= "select case_id,case_taskid,task_name,case_num,case_pirority,pirority_name,case_name,case_precondition,case_body,\n" +
+                "case_assertion,case_passflag,casepassflag_name,case_memo,case_creationdt,case_updatedt from qa_case\n" +
+                "join qa_task on task_id = case_taskid\n" +
+                "join qa_pirority on pirority_id = case_pirority\n" +
+                "join qa_casepassflag on casepassflag_id=case_passflag\n" +
+                "where case_deleted_flag =0 and task_deleted_flag = 0\n" +
+                "and case_taskid = ? ";
 
         String sql2 = sql + " order by 1 desc limit " + start + " , 20";
         //String sql2 = sql+" order by 1 desc offset  "+ start+  "  rows fetch next  20 rows only";

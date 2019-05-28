@@ -42,6 +42,7 @@ public class CaseController {
             , @RequestParam("taskId") int id) {
 
         Task task = taskService.findById(id);
+        model.addAttribute("taskid", id);
         model.addAttribute("task", task);
 
         List<Case> testcase = caseService.findCasesbyTaskid(id, pageon);
@@ -71,9 +72,11 @@ public class CaseController {
 
         if (testcase != null) {
             logger.info("查询成功！");
+
             model.addAttribute("testcase", testcase);
             return "case/cases";
         } else {
+
             model.addAttribute("message", "查询失败");
             return "case/case_auto";
         }
@@ -85,11 +88,14 @@ public class CaseController {
         logger.info("根据Case的ID来查找case信息");
         model.addAttribute("caseId", "id");
         Case testCase = caseService.findById(id);
+        int taskid= testCase.getCase_taskid();
         if (testCase != null) {
             logger.info("查询成功！");
+            model.addAttribute("taskid", taskid);
             model.addAttribute("testcase", testCase);
             return "case/case_details";
         } else {
+            model.addAttribute("taskid", taskid);
             model.addAttribute("message", "查询失败");
             return "case/case_auto";
         }
@@ -98,12 +104,16 @@ public class CaseController {
 
     @GetMapping("/delCaseById")
     public String delCaseById(Model model, @RequestParam("caseId") int id) {
+        Case testcase= caseService.findById(id);
+        int taskid= testcase.getCase_taskid();
         int count = caseService.deleteByID(id);
         if (count != 0) {
             model.addAttribute("message", "删除Case成功");
+            model.addAttribute("taskid", taskid);
             return "case/case_auto";
         } else {
             model.addAttribute("message", "删除Case失败");
+            model.addAttribute("taskid", taskid);
             return "case/case_auto";
         }
     }
@@ -113,27 +123,34 @@ public class CaseController {
     public String SearchCaseById(Model model, @RequestParam("caseId") int id) {
 
         Case testcase = caseService.findById(id);
+        int taskid = testcase.getCase_taskid();
+
         if (testcase != null) {
             model.addAttribute("cc", testcase);
             return "case/case_details";
         } else {
             model.addAttribute("message", "查询case失败");
+            model.addAttribute("taskid", taskid);
             return "case/case_auto";
         }
     }
 
     @PostMapping("/UpdateCaseById")
     public String UpdateCaseById(Model model, Case testcase) {
-
+        int taskid = testcase.getCase_taskid();
         int count = caseService.update(testcase);
+        System.out.println(taskid);
+        System.out.println(testcase);
         if (count == 1) {
             logger.info("根据ID更新Case任务成功！");
-            model.addAttribute("message", "根据ID更新Case任务成功");
-            return "task/task_auto";
+            model.addAttribute("taskid", taskid);
+            model.addAttribute("message", "根据ID更新Case成功");
+            return "case/case_auto";
         } else {
-            model.addAttribute("message", "根据ID更新Case任务失败");
+            model.addAttribute("message", "根据ID更新Case失败");
+            model.addAttribute("taskid", taskid);
             logger.info("新增task失败!");
-            return "task/task_auto";
+            return "case/case_auto";
         }
     }
 
@@ -156,14 +173,17 @@ public class CaseController {
     @PostMapping("/insertCase")
     public String insertCase(Model model, Case testcase) {
         System.out.println(testcase);
+        int taskid = testcase.getCase_taskid();
         int count = caseService.create(testcase);
         if (count == 1) {
+            model.addAttribute("taskid", taskid);
             model.addAttribute("message", "新增测试用例成功");
-            return "task/task_auto";
+            return "case/case_auto";
         } else {
+            model.addAttribute("taskid", taskid);
             model.addAttribute("message", "新增测试用例失败");
             logger.info("新增task失败!");
-            return "task/task_auto";
+            return "case/case_auto";
         }
     }
 
@@ -171,8 +191,12 @@ public class CaseController {
     public String insertCasePage(Model model, @RequestParam("taskId") int id) {
         logger.info("转页面");
         Task task = taskService.findById(id);
+        List<CaseProirity> caseProirities=caseProirityService.findAllCaseProirity();
+        List<CasePass> casePasses=casePassService.findAllPass();
         model.addAttribute("task", task);
         model.addAttribute("taskId", id);
+        model.addAttribute("caseProirities", caseProirities);
+        model.addAttribute("casePasses", casePasses);
         return "case/case_insert";
     }
 }

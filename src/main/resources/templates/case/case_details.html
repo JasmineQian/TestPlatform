@@ -88,7 +88,7 @@
                             <tr>
                                 <td><a th:href="@{/casetoUpdate(caseId=${cc.case_id})}" input="button" class="btn btn-info">信息更新</a>
                                 </td>
-                                <td><a th:href="@{/findAllTask}" input="button" class="btn btn-info">回到测试任务页面</a>
+                                <td><a th:href="@{/findTaskById(taskId=${cc.case_taskid})}" input="button" class="btn btn-info">回到测试用例页面</a>
                                 </td>
                             </tr>
                         </table>

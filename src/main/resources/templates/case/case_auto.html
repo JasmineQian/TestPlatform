@@ -19,7 +19,7 @@
 
 
 <div>
-      <a th:href="@{/findAllTask}"><input type="button" value="还剩3秒，点我立即跳转" id="txt"/></a>
+    <a th:href="@{/findCaseByTaskId(taskId=${taskid})}"><input type="button" value="还剩3秒，点我立即跳转" id="txt"/></a>
 </div>
 
 <script>
@@ -27,6 +27,12 @@
         var x = document.getElementById("txt");
         var timer = setInterval(func, 1000);
         var time = 3;
+        var tt=[[${taskid}]];
+        var tourl ="/bug/findCaseByTaskId";
+        if(tourl.indexOf('?')>0)
+            tourl=tourl+'&taskId='+tt;
+        else
+            tourl=tourl+'?taskId='+tt;
 
         function func() {
             x.value = "还剩" + time + "秒，点我立即跳转";
@@ -35,7 +41,7 @@
                 clearInterval(timer);
                 x.setAttribute("class", "one");
                 x.value = "即将跳转loading...";
-                window.location.href = "/bug/findAllTask";
+                window.location.href = tourl;
             }
         }
     }

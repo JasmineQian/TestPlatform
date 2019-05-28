@@ -23,7 +23,7 @@ public class CaseProirityServiceImpl implements CaseProirityService {
 
     @Override
     public List<CaseProirity> findAllCaseProirity() {
-        String sql = "select pirority_id,pirority_name  from qa_pirority where pirority_deleted_flag=0";
+        String sql = "select pirority_id,pirority_name  from qa_pirority order by pirority_id";
         List<CaseProirity> lists = jdbcTemplate.query(sql,new CaseProirityRowMapper());
         return lists;
     }

@@ -1,13 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.bean.*;
-import com.example.demo.config.AnyUserDetailsService;
+import com.example.demo.security.AnyUserDetailsService;
 import com.example.demo.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -182,7 +181,6 @@ public class BugController {
     @PostMapping("/create")
     public String create(Model model, Bug bug) {
         logger.info("新增bug记录");
-        /* int result = bugService.create(bug.getPname(),bug.getCrname(),bug.getCrnum(),bug.getTasknum(),bug.getOname(),bug.getDescription(),bug.getRca(),bug.getSolution(),bug.getDeveloper(),bug.getTester(),bug.getBugStatus());*/
         int result = bugService.create(bug);
         if (result == 1) {
             logger.info("新增bug成功！");
@@ -246,8 +244,7 @@ public class BugController {
     @RequestMapping("/Update")
     public String update(Model model, Bug bug) {
         logger.info("修改用户" + bug);
-        /*bug.getId(),bug.getPname(),bug.getCrname(),bug.getCrnum(),bug.getOname(),bug.getTasknum(),bug.getDescription(),
-                bug.getRca(),bug.getSolution(),bug.getDeveloper(),bug.getTester(),bug.getBugStatus()*/
+
         int result = bugService.update(bug);
         if (result == 1) {
             logger.info("修改Bug信息成功！");
