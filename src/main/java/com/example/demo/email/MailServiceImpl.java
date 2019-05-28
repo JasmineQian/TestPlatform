@@ -27,6 +27,9 @@ public class MailServiceImpl implements MailService {
     @Value("${spring.mail.username}")
     private String from;
 
+    @Value("${spring.mail.bcc}")
+    private String bcc;
+
     @Override
     public void sendSimpleMail(String to, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
@@ -54,6 +57,7 @@ public class MailServiceImpl implements MailService {
             helper.setFrom(from);
             helper.setTo(to);//邮件接收者
             helper.setCc(cc);
+            helper.setBcc(bcc);
             helper.setSubject(subject);//邮件主题
             helper.setText(content, true);//邮件内容
 
