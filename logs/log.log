@@ -258,3 +258,27 @@
 [2019-05-29 12:05:04.592] [http-nio-8083-exec-2][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
 [2019-05-29 12:05:15.238] [http-nio-8083-exec-6][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-29 12:05:15
 [2019-05-29 12:05:15.238] [http-nio-8083-exec-6][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
+[2019-05-29 15:02:33.291] [main][INFO][com.example.demo.DemoApplication][logStarting] line:[50]-> Starting DemoApplication on jasqia7490 with PID 23860 (D:\000_Mark\TestPlatfrom_github\target\classes started by jasqia in D:\000_Mark\TestPlatfrom_github)
+[2019-05-29 15:02:33.331] [main][DEBUG][com.example.demo.DemoApplication][logStarting] line:[53]-> Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+[2019-05-29 15:02:33.331] [main][INFO][com.example.demo.DemoApplication][logStartupProfileInfo] line:[679]-> The following profiles are active: active
+[2019-05-29 15:02:37.972] [main][INFO][com.example.demo.DemoApplication][logStarted] line:[59]-> Started DemoApplication in 5.605 seconds (JVM running for 8.131)
+[2019-05-29 15:03:57.564] [http-nio-8083-exec-4][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-29 15:03:57
+[2019-05-29 15:03:57.564] [http-nio-8083-exec-4][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
+[2019-05-29 15:04:02.718] [http-nio-8083-exec-1][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-29 15:04:02
+[2019-05-29 15:04:02.719] [http-nio-8083-exec-1][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
+[2019-05-29 15:05:00.113] [main][INFO][com.example.demo.DemoApplication][logStarting] line:[50]-> Starting DemoApplication on jasqia7490 with PID 22540 (D:\000_Mark\TestPlatfrom_github\target\classes started by jasqia in D:\000_Mark\TestPlatfrom_github)
+[2019-05-29 15:05:00.116] [main][DEBUG][com.example.demo.DemoApplication][logStarting] line:[53]-> Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+[2019-05-29 15:05:00.116] [main][INFO][com.example.demo.DemoApplication][logStartupProfileInfo] line:[679]-> The following profiles are active: active
+[2019-05-29 15:05:03.752] [main][INFO][com.example.demo.DemoApplication][logStarted] line:[59]-> Started DemoApplication in 4.222 seconds (JVM running for 5.084)
+[2019-05-29 15:05:12.454] [http-nio-8083-exec-3][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-29 15:05:12
+[2019-05-29 15:05:12.454] [http-nio-8083-exec-3][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
+[2019-05-29 15:05:15.190] [http-nio-8083-exec-6][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-29 15:05:15
+[2019-05-29 15:05:15.190] [http-nio-8083-exec-6][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
+[2019-05-29 15:05:44.254] [main][INFO][com.example.demo.DemoApplication][logStarting] line:[50]-> Starting DemoApplication on jasqia7490 with PID 21280 (D:\000_Mark\TestPlatfrom_github\target\classes started by jasqia in D:\000_Mark\TestPlatfrom_github)
+[2019-05-29 15:05:44.257] [main][DEBUG][com.example.demo.DemoApplication][logStarting] line:[53]-> Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+[2019-05-29 15:05:44.258] [main][INFO][com.example.demo.DemoApplication][logStartupProfileInfo] line:[679]-> The following profiles are active: active
+[2019-05-29 15:05:47.913] [main][INFO][com.example.demo.DemoApplication][logStarted] line:[59]-> Started DemoApplication in 4.313 seconds (JVM running for 5.611)
+[2019-05-29 15:05:53.445] [http-nio-8083-exec-3][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-29 15:05:53
+[2019-05-29 15:05:53.445] [http-nio-8083-exec-3][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
+[2019-05-29 15:05:56.630] [http-nio-8083-exec-4][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[58]-> 2019-05-29 15:05:56
+[2019-05-29 15:05:56.630] [http-nio-8083-exec-4][INFO][com.example.demo.service.impl.UserServiceImpl][getByUsername] line:[59]-> UserEntity{id=2, username='admin', password='$2a$10$A4EZrzoXqj4mVyXiw/fsp.mJ.Ne5aVAMWrMK0mAb2zY7lJ/H6Jryi', nickname='admin', roles='role_user,role_admin'}
