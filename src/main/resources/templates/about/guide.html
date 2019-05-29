@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>联系我们</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+</head>
+<body>
+
+<div th:insert="~{header2 :: nav}"></div>
+
+<br><br><br>
+
+
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-4">
+            <!--导航----->
+            <div calss="list-group mb-5">
+                <a class="list-group-item list-group-item-action" th:href="@{/news}">最新新闻</a>
+                <a class="list-group-item list-group-item-action" th:href="@{/contact}">联系方式</a>
+                <a class="list-group-item list-group-item-action" th:href="@{/guide}">文档指导</a>
+                <a class="list-group-item list-group-item-action" th:href="@{/donate}">捐赠方式</a>
+            </div>
+
+        </div>
+        <div class="col-8">
+            <!--导航对应的内容-->
+            <p>muqian women 文档指导文档指导文档指导文档指导文档指导文档指导</p>
+
+        </div>
+
+    </div>
+</div>
+</body>

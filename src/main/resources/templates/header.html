@@ -45,7 +45,7 @@
                         <a th:href="@{/underBuild}">继续build中的功能</a>
                     </li>
                     <li>
-                        <a th:href="@{/register}">注册页面</a>
+                        <a th:href="@{/}">说明[暂时指向首页]</a>
                     </li>
                 </ul>
 
@@ -54,6 +54,7 @@
                     <div class="form-group">
                     <a class="btn btn-danger" th:href="@{/user}" th:if="${#httpServletRequest.remoteUser}">个人中心</a>
                     <a class="btn btn-success" th:href="@{/login}" th:unless="${#httpServletRequest.remoteUser}">登录</a>
+                    <a class="btn btn-success" th:href="@{/register}" th:unless="${#httpServletRequest.remoteUser}">注册</a>
                     </div>
                 </div>
 

@@ -1,0 +1,79 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>联系我们</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div th:fragment="nav">
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin: 0; border: 0">
+        <div class="container">
+
+            <!-- 导航链接 -->
+            <div id="navbar" class="navbar-collapse collapse">
+                <!-- 默认的导航 -->
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a th:href="@{/}">首页</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/listpage(pagenum=1)}">Bug管理页面</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/findAllTask}">Case管理页面</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/findAllApi}">API测试用例自动生成</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/underBuild}">继续build中的功能</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/news}">关于我们</a>
+                    </li>
+                </ul>
+
+
+                <div class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <a class="btn btn-danger" th:href="@{/user}" th:if="${#httpServletRequest.remoteUser}">个人中心</a>
+                        <a class="btn btn-success" th:href="@{/login}" th:unless="${#httpServletRequest.remoteUser}">登录</a>
+                        <a class="btn btn-success" th:href="@{/register}" th:unless="${#httpServletRequest.remoteUser}">注册</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+<br><br><br>
+
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-4">
+            <!--导航----->
+            <div calss="list-group mb-5">
+                <a class="list-group-item list-group-item-action" th:href="@{/news}">最新新闻</a>
+                <a class="list-group-item list-group-item-action" th:href="@{/contact}">联系方式</a>
+                <a class="list-group-item list-group-item-action" th:href="@{/guide}">文档指导</a>
+                <a class="list-group-item list-group-item-action" th:href="@{/donate}">捐赠方式</a>
+            </div>
+
+        </div>
+        <div class="col-8">
+            <!--导航对应的内容-->
+            <p></p>
+
+        </div>
+
+    </div>
+</div>
+</body>
