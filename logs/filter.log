@@ -10,3 +10,5 @@
 [2019-05-29 11:30:00.018] [scheduling-1][ERROR][com.example.demo.controller.MailScheduler][doTask] line:[43]-> 我要开始发邮件啦,现在的时间为:Wed May 29 11:30:00 CST 2019
 [2019-05-29 11:45:00.001] [scheduling-1][ERROR][com.example.demo.controller.MailScheduler][doTask] line:[43]-> 我要开始发邮件啦,现在的时间为:Wed May 29 11:45:00 CST 2019
 [2019-05-29 12:00:00.002] [scheduling-1][ERROR][com.example.demo.controller.MailScheduler][doTask] line:[43]-> 我要开始发邮件啦,现在的时间为:Wed May 29 12:00:00 CST 2019
+[2019-05-29 14:06:49.632] [scheduling-1][ERROR][com.example.demo.controller.MailScheduler][doTask] line:[43]-> 我要开始发邮件啦,现在的时间为:Wed May 29 14:06:49 CST 2019
+[2019-05-29 14:14:59.979] [scheduling-1][ERROR][com.example.demo.controller.MailScheduler][doTask] line:[43]-> 我要开始发邮件啦,现在的时间为:Wed May 29 14:14:59 CST 2019
