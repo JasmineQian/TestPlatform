@@ -49,9 +49,6 @@ public class BugController {
     @Autowired
     private AnyUserDetailsService anyUserDetailsService;
 
-    /*
-        @ApiOperation(value = "展示bug列表请求接口",notes="展示bug列表请求接口")
-        @ApiImplicitParam(dataType = "User",name = "user",value = "用户信息",required = true)*/
     @RequestMapping("/listpage")
     public String findAll(Model model, @RequestParam(value = "pageon", defaultValue = "1") int pageon,
                           @RequestParam(value = "pid", defaultValue = "0") int pid,

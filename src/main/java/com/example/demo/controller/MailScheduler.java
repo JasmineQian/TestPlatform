@@ -49,11 +49,12 @@ public class MailScheduler {
             BugNotifyBean bugNotifyBean = (BugNotifyBean) it.next();
 
 
-            String aaa = bugNotifyBean.getDeveloperEmail();
-            String bbb = bugNotifyBean.getTesterEmail();
+            String developerEmail = bugNotifyBean.getDeveloperEmail();
+            String testerEmail = bugNotifyBean.getTesterEmail();
 
 
             Context context = new Context();
+            context.setVariable("bugnum", "bugnum#"+bugNotifyBean.getId());
             context.setVariable("bugdes", bugNotifyBean.getDescription());
             context.setVariable("bugstatus", bugNotifyBean.getBugStatus());
             context.setVariable("crname", bugNotifyBean.getCrname());
@@ -66,7 +67,7 @@ public class MailScheduler {
 
 
             String emailContent = templateEngine.process("emailTemplate", context);
-            mailService.sendHtmlMail(aaa, bbb,"您好，有一个Bug要关注，谢谢!!", emailContent);
+            mailService.sendHtmlMail(developerEmail, testerEmail,"您好，有一个Bug要关注，谢谢!!", emailContent);
 
         }
 
