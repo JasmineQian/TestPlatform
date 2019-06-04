@@ -1,10 +1,7 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.bean.ApiCaseBean;
-import com.example.demo.bean.ApiInfoBean;
-import com.example.demo.bean.ApiVarBean;
-import com.example.demo.bean.CaseReport;
+import com.example.demo.bean.*;
 import com.example.demo.service.ApiCaseService;
 import com.example.demo.service.ApiInfoService;
 import com.example.demo.service.ApiVarService;
@@ -18,6 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import springfox.documentation.service.ApiInfo;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
@@ -41,10 +42,57 @@ public class ApiVarController {
     private ApiVarService apiVarService;
 
 
+    @PostMapping("/apiVarcreate")
+    public String apiVarcreate(Model model, ApiVarBean apiVarBean) {
+
+        int count = apiVarService.save(apiVarBean);
+        if (count == 1) {
+            model.addAttribute("message", "新增API的变量成功");
+            return "api/api_auto";
+        } else {
+            model.addAttribute("message", "新增API的变量失败");
+            return "api/api_auto";
+        }
+    }
+
+    @RequestMapping("/apiVartoUpdate")
+    public String apiInfotoUpdate(Model model, int api) {
+        ApiInfoBean apiInfoBean = apiInfoService.findApiById(api);
+        model.addAttribute("apiID", api);
+        model.addAttribute("api", apiInfoBean);
+        return "api/api_update";
+    }
+
+
+    @GetMapping("/insertAPIVarPage")
+    public String insertAPIVarPage(Model model, @RequestParam("apiInfoId") int id) {
+        logger.info("转页面");
+        ApiInfoBean apiInfoBean = apiInfoService.findApiById(id);
+        model.addAttribute("apiInfoBean", apiInfoBean);
+        model.addAttribute("api", id);
+        return "api/api_varinsert";
+    }
+
+    @PostMapping("/apiVarUpdate")
+    public String apiVarUpdate(Model model, ApiInfoBean apiInfoBean) {
+        int count = apiInfoService.updateApi(apiInfoBean);
+        if (count == 1) {
+            logger.info("更新API接口成功！");
+            model.addAttribute("message", "更新API接口成功");
+            return "api/api_auto";
+        } else {
+            model.addAttribute("message", "更新API接口失败");
+            return "api/api_auto";
+        }
+
+
+    }
+
+
     @GetMapping("/findApiVarById")
-    public String findApiVarById(Model model, int taskId) {
-        List<ApiVarBean> lists = apiVarService.CheckAllVar(taskId);
-        ApiInfoBean infoBean = apiInfoService.findApiById(taskId);
+    public String findApiVarById(Model model, int api) {
+        List<ApiVarBean> lists = apiVarService.CheckAllVar(api);
+        ApiInfoBean infoBean = apiInfoService.findApiById(api);
         model.addAttribute("var", lists);
         model.addAttribute("infoBean", infoBean);
         return "api/api_vars";
@@ -52,9 +100,9 @@ public class ApiVarController {
 
 
     @GetMapping("/downloadcases")
-    public void downloadcases(HttpServletResponse response, int taskId) {
-        List<ApiCaseBean> cases = apiCaseService.findApiCaseById(taskId);
-        ApiInfoBean infoBean = apiInfoService.findApiById(taskId);
+    public void downloadcases(HttpServletResponse response, int apiInfoId) {
+        List<ApiCaseBean> cases = apiCaseService.findApiCaseById(apiInfoId);
+        ApiInfoBean infoBean = apiInfoService.findApiById(apiInfoId);
         //EXCEL表导出核心代码
         //   声明一个Excel
         HSSFWorkbook wb = null;

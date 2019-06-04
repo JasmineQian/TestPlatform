@@ -33,16 +33,19 @@ public class ApiVarServiceImpl implements ApiVarService {
 
         int num = apiVarBean.getNum();
         String valname = apiVarBean.getVal();
-        int flag = apiVarBean.getInputFlag();
+        int mamdatoryflag = apiVarBean.getInputFlag();
         String Type = apiVarBean.getInputDataType();
         int TypeID = apiVarBean.getInputTypeID();
         int length = apiVarBean.getInputLenght();
         String note = apiVarBean.getInputNote();
 
-        //return jdbcTemplate.update(sql, pname, crname, crnum, tasknum, oname, description, rca, solution, developer, tester, date, date, bugStatus);
+        String sql = "insert qa_apivar(api_id,apivar_name,apivar_inputflag,apivar_inputdatatype,apivar_inputdatatypeid,\n" +
+                "apivar_inputlength,apivar_inputscope,apivar_inputnote,apivar_deleted_flag,apivar_createdt,apivar_updatedt)\n" +
+                "values(?,?,?,?,?,?,?,?,?,?,?)";
 
+        int count = jdbcTemplate.update(sql, num, valname, mamdatoryflag, Type, TypeID,length,"scope",note,0, date, date);
+        return count;
 
-        return 0;
     }
 
     @Override

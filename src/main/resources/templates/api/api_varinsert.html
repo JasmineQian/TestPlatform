@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>新增接口中变量页面</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" type="text/css"/>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:insert="~{header :: nav}"></div>
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Bug管理系统</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">新增接口中变量页面</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <form th:action="@{/apiVarcreate}" method="post">
+                                <input type="hidden" name="num" th:value="${api}"/>
+
+                                <tr>
+                                    <td>变量名称</td>
+                                    <td><input maxlength="10" autocomplete="off"  type="text" name="val" ></td>
+                                </tr>
+                                <tr>
+                                    <td>变量是否必填0/1</td>
+                                    <td><input maxlength="10" autocomplete="off"  type="text" name="InputFlag" ></td>
+                                </tr>
+                                <tr>
+                                    <td>变量类型</td>
+                                    <td><input maxlength="40" autocomplete="off" type="text" name="InputDataType" style="margin: 0px; width: 1005px;"></td>
+                                </tr>
+                                <tr>
+                                    <td>变量类型iD</td>
+                                    <td><input maxlength="40" autocomplete="off" type="text" name="InputTypeID" style="margin: 0px; width: 1005px;"></td>
+                                </tr>
+                                <tr>
+                                    <td>变量最大长度</td>
+                                    <td><input maxlength="40" autocomplete="off" type="text" name="InputLenght" style="margin: 0px; width: 1005px;"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>变量note</td>
+                                    <td><textarea rows="10" cols="20" type="text" name="InputNote" style="margin: 0px; width: 1005px; height: 84px;"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="submit" value="确认新增" class="btn btn-info"></td>
+                                    <td><a th:href="@{/listpage(pageon=1)}" input="button" class="btn btn-info">回到首页</a></td>
+                                </tr>
+                            </form>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="~{footer :: nav}"></div>
+</body>
+</html>
+

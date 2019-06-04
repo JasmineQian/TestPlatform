@@ -29,11 +29,11 @@ public class ApiCaseController {
 
 
     @GetMapping("/findApiCaseById")
-    public String findApiCaseById(Model model, int taskId) {
-        ApiInfoBean apiInfoBean = apiInfoService.findApiById(taskId);
+    public String findApiCaseById(Model model, int api) {
+        ApiInfoBean apiInfoBean = apiInfoService.findApiById(api);
         model.addAttribute("apiInfo", apiInfoBean);
-        List<ApiCaseBean> lists = apiCaseService.findApiCaseById(taskId);
-        model.addAttribute("api", taskId);
+        List<ApiCaseBean> lists = apiCaseService.findApiCaseById(api);
+        model.addAttribute("api", api);
         model.addAttribute("lists", lists);
         return "api/api_cases";
     }

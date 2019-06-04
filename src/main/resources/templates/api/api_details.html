@@ -51,8 +51,8 @@
                             </tr>
                             <tr>
                                 <td>接口相关</td>
-                                <td><a th:href="@{/findApiVarById(taskId=${api.api_id})}" input="button" class="btn btn-info">查看API接口中变量信息</a>
-                                    <a th:href="@{/findApiCaseById(taskId=${api.api_id})}" input="button" class="btn btn-info">查看API接口的测试用例</a>
+                                <td><a th:href="@{/findApiVarById(api=${api.api_id})}" input="button" class="btn btn-info">查看API接口中变量信息</a>
+                                    <a th:href="@{/findApiCaseById(api=${api.api_id})}" input="button" class="btn btn-info">查看API接口的测试用例</a>
                                 </td>
                             </tr>
                             <tr>
