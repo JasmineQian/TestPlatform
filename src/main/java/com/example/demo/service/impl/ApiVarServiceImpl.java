@@ -54,7 +54,10 @@ public class ApiVarServiceImpl implements ApiVarService {
         DateFormat bf = DateFormat.getDateTimeInstance();
         String date = bf.format(dt);
 
-        String sql= "";
+        String sql = "insert qa_apivar(api_id,apivar_name,apivar_inputflag,apivar_inputdatatype,apivar_inputdatatypeid,\n" +
+                "apivar_inputlength,apivar_inputscope,apivar_inputnote,apivar_deleted_flag,apivar_createdt,apivar_updatedt)\n" +
+                "values(?,?,?,?,?,?,?,?,?,?,?)";
+        int countamount =0;
 
         for (int i = 0; i < apiVarBeanList.size(); i++) {
             ApiVarBean apiVarBean = new ApiVarBean();
@@ -67,9 +70,52 @@ public class ApiVarServiceImpl implements ApiVarService {
             int TypeID = apiVarBean.getInputTypeID();
             int length = apiVarBean.getInputLenght();
             String note = apiVarBean.getInputNote();
-            //int count = ;
+            int count = jdbcTemplate.update(sql, num, valname, flag, Type, TypeID,length,"scope",note,0, date, date);
+            countamount = countamount + count;
         }
-        return 0;
+        return countamount;
+    }
+
+    @Override
+    public int update(ApiVarBean apiVarBean) {
+        Date dt = new Date();
+        DateFormat bf = new SimpleDateFormat(dateformat);
+        String date = bf.format(dt);
+
+        int num = apiVarBean.getNum();
+        String valname = apiVarBean.getVal();
+        int mamdatoryflag = apiVarBean.getInputFlag();
+        String Type = apiVarBean.getInputDataType();
+        int TypeID = apiVarBean.getInputTypeID();
+        int length = apiVarBean.getInputLenght();
+        String note = apiVarBean.getInputNote();
+
+        String sql = "update qa_apivar set apivar_name = ?,apivar_inputflag = ?, apivar_inputdatatype = ?,apivar_inputdatatypeid = ?,\n" +
+                "apivar_inputlength = ?, apivar_inputscope = ?,apivar_inputnote = ?, apivar_updatedt = ?)";
+
+        int count = jdbcTemplate.update(sql, num, valname, mamdatoryflag, Type, TypeID,length,"scope",note, date);
+        return count;
+    }
+
+    @Override
+    public int deleteByid(int id) {
+
+        Date dt = new Date();
+        DateFormat bf = new SimpleDateFormat(dateformat);
+        String date = bf.format(dt);
+
+        String sql= "update  qa_apivar  set apivar_deleted_flag  =1 ,apivar_updatedt = ? where apivar_id= ? ";
+        int count=jdbcTemplate.update(sql,date,id);
+        return count;
+    }
+
+    @Override
+    public ApiVarBean selectByid(int id) {
+
+        String sql= "select apivar_id,api_id,apivar_name,apivar_inputflag,apivar_inputdatatype,apivar_inputdatatypeid,apivar_inputlength,apivar_inputscope,apivar_inputnote,apivar_createdt,apivar_updatedt\n" +
+                "from qa_apivar where apivar_deleted_flag = 0 and apivar_id = ? ";
+        ApiVarBean apiVarBean =  jdbcTemplate.queryForObject(sql,new ApiVarBeanRowMapper(),id);
+        return apiVarBean;
     }
 
     @Override

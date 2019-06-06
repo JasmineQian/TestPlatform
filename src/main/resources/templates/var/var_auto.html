@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>提示页面</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body align="center">
+<div th:insert="~{header :: nav}"></div>
+
+  <h1></h1>
+
+  <h1><a th:text="${message}"></a>页面将在3秒后自动跳转到首页</h1>
+
+
+<div>
+      <a th:href="@{/findAllApi}"><input type="button" value="还剩3秒，点我立即跳转" id="txt"/></a>
+</div>
+
+<script>
+    window.onload = function () {
+        var x = document.getElementById("txt");
+        var timer = setInterval(func, 1000);
+        var time = 3;
+
+        function func() {
+            x.value = "还剩" + time + "秒，点我立即跳转";
+            time--;
+            if (time < 0) {
+                clearInterval(timer);
+                x.setAttribute("class", "one");
+                x.value = "即将跳转loading...";
+                window.location.href = "/bug/findAllApi";
+            }
+        }
+    }
+</script>
+</body>
+</html>

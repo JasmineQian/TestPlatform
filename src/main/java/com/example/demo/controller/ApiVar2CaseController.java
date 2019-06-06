@@ -10,17 +10,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Random;
 
 
 @Controller
-public class ApiVar2CaseCOntroller {
+public class ApiVar2CaseController {
 
 
     String ALLCHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    String ALLINT = "0123456789";
 
     @Autowired
     private ApiInfoService apiInfoService;
@@ -74,7 +75,7 @@ public class ApiVar2CaseCOntroller {
         ApiInfoBean infoBean = apiInfoService.findApiById(taskid);
         model.addAttribute("var", lists);
         model.addAttribute("infoBean", infoBean);
-        return "api/api_vars";
+        return "var/api_vars";
     }
 
     //根据必传参数，依次生成"请求传入的XX参数为空字符串"
@@ -122,7 +123,7 @@ public class ApiVar2CaseCOntroller {
         ApiInfoBean infoBean = apiInfoService.findApiById(taskid);
         model.addAttribute("var", lists);
         model.addAttribute("infoBean", infoBean);
-        return "api/api_vars";
+        return "var/api_vars";
     }
 
 
@@ -170,7 +171,7 @@ public class ApiVar2CaseCOntroller {
         ApiInfoBean infoBean = apiInfoService.findApiById(taskid);
         model.addAttribute("var", lists);
         model.addAttribute("infoBean", infoBean);
-        return "api/api_vars";
+        return "var/api_vars";
 
     }
 

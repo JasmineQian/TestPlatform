@@ -103,6 +103,7 @@
                         <td th:text="${cc.InputLenght}"></td>
                         <td th:text="${cc.InputNote}"></td>
                         <td>
+                            <a th:href="@{/apiVartoUpdate(id=${cc.num})}" input="button" class="btn btn-info">更新</a>
                             <a th:href="@{/delAPiVarById(id=${cc.num})}" input="button" class="btn btn-danger"
                                onclick="alert('确认删除此测试用例吗？')">删除</a>
                         </td>
