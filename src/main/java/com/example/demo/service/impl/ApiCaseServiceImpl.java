@@ -31,19 +31,20 @@ public class ApiCaseServiceImpl implements ApiCaseService {
         String body = apiCaseBean.getApiCase_body();
         String asser = apiCaseBean.getApiCase_asseertion();
         int pirority = apiCaseBean.getApiCase_priorityid();
+        int apicase_typeid = apiCaseBean.getCasetype_id();
         Date dt = new Date();
         DateFormat bf = new SimpleDateFormat(dateformat);
 
         String date = bf.format(dt);
-        String sql = "insert qa_apicase(api_id,apicase_name,apicase_body,apicase_asserction,apicase_priorityid,apicase_createdt,apicase_updatedt)\n" +
-                "values(?,?,?,?,?,?,?) \n";
-        return jdbcTemplate.update(sql, api_id,name, body, asser, pirority, date, date);
+        String sql = "insert qa_apicase(api_id,apicase_name,apicase_body,apicase_asserction,apicase_priorityid,apicase_typeid,apicase_createdt,apicase_updatedt)\n" +
+                "values(?,?,?,?,?,?,?,?) \n";
+        return jdbcTemplate.update(sql, api_id,name, body, asser, pirority, apicase_typeid,date, date);
 
     }
 
     @Override
     public List<ApiCaseBean> findApiCaseById(int apiID) {
-        String sql = "select  apicase_id,api_pid,project_name,qa_apicase.api_id as api_id,api_name,apicase_name,apicase_body,\n" +
+        String sql = "select  apicase_id,api_pid,project_name,qa_apicase.api_id as api_id,api_name,apicase_name,apicase_body,apicase_typeid,\n" +
                 "apicase_asserction,apicase_priorityid,pirority_name,apicase_passid,casepassflag_name,apicase_memo,apicase_createdt,apicase_updatedt\n" +
                 "from qa_apicase join qa_api on qa_apicase.api_id = qa_api.api_id\n" +
                 "join qa_project on project_id = api_pid\n" +
@@ -56,7 +57,7 @@ public class ApiCaseServiceImpl implements ApiCaseService {
 
     @Override
     public ApiCaseBean findApiCase(int id) {
-        String sql= "select  apicase_id,api_pid,project_name,qa_apicase.api_id as api_id,api_name,apicase_name,apicase_body,\n" +
+        String sql= "select  apicase_id,api_pid,project_name,qa_apicase.api_id as api_id,api_name,apicase_name,apicase_body,apicase_typeid,\n" +
                 "apicase_asserction,apicase_priorityid,pirority_name,apicase_passid,casepassflag_name,apicase_memo,apicase_createdt,apicase_updatedt\n" +
                 "from qa_apicase join qa_api on qa_apicase.api_id = qa_api.api_id\n" +
                 "join qa_project on project_id = api_pid\n" +
@@ -86,6 +87,16 @@ public class ApiCaseServiceImpl implements ApiCaseService {
 
         int count = jdbcTemplate.update(sql,casename,body,asserction,priority,pass,memo, date, id,apiid);
         return count;
+    }
+
+    //按照所在的接口api_id以及测试用例的种类进行删除
+    //频繁地操作一张表，可能会进行锁表
+
+    @Override
+    public int deleteByTypeId(int id, int typeid) {
+        String sql="delete from qa_apicase where api_id= ? and apicase_typeid = ?";
+        int count =jdbcTemplate.update(sql, id,typeid);
+        return 0;
     }
 
 

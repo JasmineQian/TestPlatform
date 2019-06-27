@@ -28,12 +28,20 @@ public class UserServiceImpl implements UserService {
     @Value("${dateformat}")
     String dateformat;
 
+    @Value("${roles}")
+    String roles;
+
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
     public int insert(UserEntity userEntity) {
+
+        Date dt = new Date();
+        DateFormat bf = new SimpleDateFormat(dateformat);
+        String date = bf.format(dt);
+
         String username =userEntity.getUsername();
         String password =userEntity.getPassword();
 
@@ -41,10 +49,10 @@ public class UserServiceImpl implements UserService {
         String pass =passwordEncoder.encode(password);
 
         String nickname =userEntity.getNickname();
-        String role ="role_user";
+        String role =roles;
 
-        String sql = "insert into qa_user(username,password,nickname,roles) values(?,?,?,?)";
-        int count = jdbcTemplate.update(sql,username,pass,nickname,role);
+        String sql = "insert into qa_user(username,password,nickname,roles,creationdt,updatedt) values(?,?,?,?,?,?)";
+        int count = jdbcTemplate.update(sql,username,pass,nickname,role,date,date);
         return count;
     }
 

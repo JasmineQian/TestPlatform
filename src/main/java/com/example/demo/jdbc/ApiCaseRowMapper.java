@@ -28,6 +28,7 @@ public class ApiCaseRowMapper implements RowMapper<ApiCaseBean> {
         String apicase_memo = resultSet.getString("apicase_memo");
         String createdt = resultSet.getString("apicase_createdt");
         String updatedt = resultSet.getString("apicase_updatedt");
+        int casetype_id = resultSet.getInt("apicase_typeid");
 
         ApiCaseBean apiCaseBean = new ApiCaseBean();
         apiCaseBean.setApiCase_num(apicase_id);
@@ -45,6 +46,7 @@ public class ApiCaseRowMapper implements RowMapper<ApiCaseBean> {
         apiCaseBean.setApiCase_memo(apicase_memo);
         apiCaseBean.setCreatedt(createdt);
         apiCaseBean.setUpdatedt(updatedt);
+        apiCaseBean.setCasetype_id(casetype_id);
 
         return apiCaseBean;
 

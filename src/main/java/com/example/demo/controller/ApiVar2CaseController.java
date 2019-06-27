@@ -1,9 +1,10 @@
 package com.example.demo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.bean.ApiCaseBean;
 import com.example.demo.bean.ApiInfoBean;
-import com.example.demo.service.ApiCaseService;
 import com.example.demo.bean.ApiVarBean;
+import com.example.demo.service.ApiCaseService;
 import com.example.demo.service.ApiInfoService;
 import com.example.demo.service.ApiVarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,6 @@ public class ApiVar2CaseController {
     @Autowired
     private ApiVarService apiVarService;
 
-
     @Autowired
     private ApiCaseService apiCaseService;
 
@@ -37,6 +37,7 @@ public class ApiVar2CaseController {
     //根据必传参数，依次生成"请求传入的xx参数未传，验证返回"
     public String CheckMustVar(Model model, int taskid) {
         List<ApiVarBean> list = apiVarService.CheckMustVar(taskid);
+        apiCaseService.deleteByTypeId(taskid,1);
         System.out.println(list);
         System.out.println(list.size());
         int max = 0;
@@ -46,7 +47,10 @@ public class ApiVar2CaseController {
             var = "请求中未传入" + var + "验证返回" + var + "~~更多断言";
             System.out.println(var);
             StringBuffer sb = new StringBuffer();
-            body = "{ \n";
+            JSONObject jsonObject = new JSONObject();
+            body = jsonObject.toString();
+
+
             for (int j = 0; j < list.size(); j++) {
                 if (list.get(i).getVal() != list.get(j).getVal()) {
                     Random random = new Random();
@@ -55,10 +59,11 @@ public class ApiVar2CaseController {
                     for (int k = 0; k < max; k++) {
                         sb.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
                     }
-                    body = body + "\"" + list.get(j).getVal() + "\":\"" + sb + "\", \n";
+                    jsonObject.put(list.get(j).getVal(),list.get(j).getVal_sample());
                 }
             }
-            body = body.substring(0, (body.length() - 3)) + " \n }";
+
+            body = jsonObject.toString();
             System.out.println(body);
             ApiCaseBean apiCaseBean = new ApiCaseBean();
             apiCaseBean.setApiCase_taskid(taskid);
@@ -66,6 +71,7 @@ public class ApiVar2CaseController {
             apiCaseBean.setApiCase_body(body);
             apiCaseBean.setApiCase_asseertion(null);
             apiCaseBean.setApiCase_priorityid(3);
+            apiCaseBean.setCasetype_id(1);
 
             int count = apiCaseService.add(apiCaseBean);
             System.out.println(count);
@@ -78,10 +84,14 @@ public class ApiVar2CaseController {
         return "var/api_vars";
     }
 
+
+
+
     //根据必传参数，依次生成"请求传入的XX参数为空字符串"
     @RequestMapping("/CheckMustVarEmpty")
     public String CheckMustVarEmpty(Model model,int taskid) {
         List<ApiVarBean> list = apiVarService.CheckMustVar(taskid);
+        apiCaseService.deleteByTypeId(taskid,2);
         int max = 0;
         String body = null;
         for (int i = 0; i < list.size(); i++) {
@@ -89,7 +99,8 @@ public class ApiVar2CaseController {
             var = "请求中传入" + var + "为空字符串验证返回" + var + "~~更多断言";
             System.out.println(var);
             StringBuffer sb = new StringBuffer();
-            body = "{ \n";
+            JSONObject jsonObject = new JSONObject();
+            body = jsonObject.toString();
             for (int j = 0; j < list.size(); j++) {
 
                 if (list.get(i).getVal() != list.get(j).getVal()) {
@@ -100,21 +111,23 @@ public class ApiVar2CaseController {
 
                         sb.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
                     }
-
-                    body = body + "\"" + list.get(j).getVal() + "\":\"" + sb + "\", \n";
+                    jsonObject.put(list.get(j).getVal(),list.get(j).getVal_sample());
+                    //jsonObject.put(list.get(j).getVal(),sb);
 
 
                 } else {
-                    body = body + "\"" + list.get(j).getVal() + "\":\"" + "\", \n";
+                    jsonObject.put(list.get(j).getVal(),"");
                 }
             }
-            body = body.substring(0, (body.length() - 3)) + " \n }";
+
+            body = jsonObject.toString();
             ApiCaseBean apiCaseBean = new ApiCaseBean();
             apiCaseBean.setApiCase_taskid(taskid);
             apiCaseBean.setApiCase_name(var);
             apiCaseBean.setApiCase_body(body);
             apiCaseBean.setApiCase_asseertion(null);
             apiCaseBean.setApiCase_priorityid(3);
+            apiCaseBean.setCasetype_id(2);
 
             int count = apiCaseService.add(apiCaseBean);
             System.out.println(count);
@@ -131,6 +144,7 @@ public class ApiVar2CaseController {
     @RequestMapping("/CheckVarOverLength")
     public String CheckVarOverLength(Model model,int taskid) {
         List<ApiVarBean> list = apiVarService.CheckMustVar(taskid);
+        apiCaseService.deleteByTypeId(taskid,3);
         int max = 0;
         String body = null;
         for (int i = 0; i < list.size(); i++) {
@@ -139,7 +153,10 @@ public class ApiVar2CaseController {
             var = "请求中传入" + var + "的长度为" + length + "实际传入的长度为" + (length + 1) + "验证返回" + var + "~~更多断言";
             System.out.println(var);
             StringBuffer sb = new StringBuffer();
-            body = "{ \n";
+
+            JSONObject jsonObject = new JSONObject();
+            body = jsonObject.toString();
+
             for (int j = 0; j < list.size(); j++) {
                 Random random = new Random();
                 max = list.get(j).getInputLenght();
@@ -153,15 +170,19 @@ public class ApiVar2CaseController {
                         sb.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
                     }
                 }
-                body = body + "\"" + list.get(j).getVal() + "\":\"" + sb + "\", \n";
+
+                jsonObject.put(list.get(j).getVal(),sb);
             }
-            body = body.substring(0, (body.length() - 3)) + " \n }";
+
+
+            body = jsonObject.toString();
             ApiCaseBean apiCaseBean = new ApiCaseBean();
             apiCaseBean.setApiCase_taskid(taskid);
             apiCaseBean.setApiCase_name(var);
             apiCaseBean.setApiCase_body(body);
             apiCaseBean.setApiCase_asseertion(null);
             apiCaseBean.setApiCase_priorityid(3);
+            apiCaseBean.setCasetype_id(3);
 
             int count = apiCaseService.add(apiCaseBean);
             System.out.println(count);

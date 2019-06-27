@@ -14,6 +14,8 @@ public interface ApiCaseService {
 
     int update(ApiCaseBean apiCaseBean);
 
+    int deleteByTypeId(int id,int typeid);
+
     int delete(int id);
 
 }

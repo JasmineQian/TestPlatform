@@ -13,6 +13,7 @@ public class ApiVarBeanRowMapper implements RowMapper<ApiVarBean> {
         int apivar_id = resultSet.getInt("apivar_id");
         int api_id = resultSet.getInt("api_id");
         String apivar_name = resultSet.getString("apivar_name");
+        String apivar_sample = resultSet.getString("apivar_sample");
         int apivar_inputflag = resultSet.getInt("apivar_inputflag");
         String apivar_inputdatatype = resultSet.getString("apivar_inputdatatype");
         int apivar_inputtype = resultSet.getInt("apivar_inputdatatypeid");
@@ -25,6 +26,7 @@ public class ApiVarBeanRowMapper implements RowMapper<ApiVarBean> {
         ApiVarBean apiVarBean = new ApiVarBean();
         apiVarBean.setNum(apivar_id);
         apiVarBean.setVal(apivar_name);
+        apiVarBean.setVal_sample(apivar_sample);
         apiVarBean.setInputFlag(apivar_inputflag);
         apiVarBean.setInputDataType(apivar_inputdatatype);
         apiVarBean.setInputTypeID(apivar_inputtype);

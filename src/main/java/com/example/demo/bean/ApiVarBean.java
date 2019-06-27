@@ -4,6 +4,7 @@ public class ApiVarBean {
 
     private int num;
     private String val;
+    private String val_sample;
     private int InputFlag;
     private String InputDataType;
     private int InputTypeID;
@@ -26,6 +27,14 @@ public class ApiVarBean {
 
     public void setVal(String val) {
         this.val = val;
+    }
+
+    public String getVal_sample() {
+        return val_sample;
+    }
+
+    public void setVal_sample(String val_sample) {
+        this.val_sample = val_sample;
     }
 
     public int getInputFlag() {
@@ -68,11 +77,13 @@ public class ApiVarBean {
         InputNote = inputNote;
     }
 
+
     @Override
     public String toString() {
         return "ApiVarBean{" +
                 "num=" + num +
                 ", val='" + val + '\'' +
+                ", val_sample='" + val_sample + '\'' +
                 ", InputFlag=" + InputFlag +
                 ", InputDataType='" + InputDataType + '\'' +
                 ", InputTypeID=" + InputTypeID +
@@ -80,6 +91,4 @@ public class ApiVarBean {
                 ", InputNote='" + InputNote + '\'' +
                 '}';
     }
-
-
 }

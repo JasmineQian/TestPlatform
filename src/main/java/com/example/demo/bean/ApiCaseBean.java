@@ -18,6 +18,7 @@ public class ApiCaseBean {
     private String apiCase_memo;
     private String createdt;
     private String updatedt;
+    private int casetype_id;
 
     public String getApiCase_taskname() {
         return apiCase_taskname;
@@ -147,6 +148,12 @@ public class ApiCaseBean {
         this.apiCase_projectname = apiCase_projectname;
     }
 
+    public int getCasetype_id() {return casetype_id;}
+
+    public void setCasetype_id(int casetype_id) {
+        this.casetype_id = casetype_id;
+    }
+
     @Override
     public String toString() {
         return "ApiCaseBean{" +
@@ -154,6 +161,7 @@ public class ApiCaseBean {
                 ", apiCase_pid=" + apiCase_pid +
                 ", apiCase_projectname='" + apiCase_projectname + '\'' +
                 ", apiCase_taskid=" + apiCase_taskid +
+                ", apiCase_taskname='" + apiCase_taskname + '\'' +
                 ", apiCase_name='" + apiCase_name + '\'' +
                 ", apiCase_body='" + apiCase_body + '\'' +
                 ", apiCase_asseertion='" + apiCase_asseertion + '\'' +
@@ -165,6 +173,7 @@ public class ApiCaseBean {
                 ", apiCase_memo='" + apiCase_memo + '\'' +
                 ", createdt='" + createdt + '\'' +
                 ", updatedt='" + updatedt + '\'' +
+                ", casetype_id=" + casetype_id +
                 '}';
     }
 }

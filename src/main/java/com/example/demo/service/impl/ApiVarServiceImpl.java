@@ -84,16 +84,17 @@ public class ApiVarServiceImpl implements ApiVarService {
 
         int num = apiVarBean.getNum();
         String valname = apiVarBean.getVal();
+        String valsample = apiVarBean.getVal_sample();
         int mamdatoryflag = apiVarBean.getInputFlag();
         String Type = apiVarBean.getInputDataType();
         int TypeID = apiVarBean.getInputTypeID();
         int length = apiVarBean.getInputLenght();
         String note = apiVarBean.getInputNote();
 
-        String sql = "update qa_apivar set apivar_name = ?,apivar_inputflag = ?, apivar_inputdatatype = ?,apivar_inputdatatypeid = ?,\n" +
+        String sql = "update qa_apivar set apivar_name = ?,apivar_sample = ?,apivar_inputflag = ?, apivar_inputdatatype = ?,apivar_inputdatatypeid = ?,\n" +
                 "apivar_inputlength = ?, apivar_inputscope = ?,apivar_inputnote = ?, apivar_updatedt = ?)";
 
-        int count = jdbcTemplate.update(sql, num, valname, mamdatoryflag, Type, TypeID,length,"scope",note, date);
+        int count = jdbcTemplate.update(sql, num, valname,valsample, mamdatoryflag, Type, TypeID,length,"scope",note, date);
         return count;
     }
 
@@ -112,7 +113,7 @@ public class ApiVarServiceImpl implements ApiVarService {
     @Override
     public ApiVarBean selectByid(int id) {
 
-        String sql= "select apivar_id,api_id,apivar_name,apivar_inputflag,apivar_inputdatatype,apivar_inputdatatypeid,apivar_inputlength,apivar_inputscope,apivar_inputnote,apivar_createdt,apivar_updatedt\n" +
+        String sql= "select apivar_id,api_id,apivar_name,apivar_sample,apivar_inputflag,apivar_inputdatatype,apivar_inputdatatypeid,apivar_inputlength,apivar_inputscope,apivar_inputnote,apivar_createdt,apivar_updatedt\n" +
                 "from qa_apivar where apivar_deleted_flag = 0 and apivar_id = ? ";
         ApiVarBean apiVarBean =  jdbcTemplate.queryForObject(sql,new ApiVarBeanRowMapper(),id);
         return apiVarBean;
@@ -120,7 +121,7 @@ public class ApiVarServiceImpl implements ApiVarService {
 
     @Override
     public List<ApiVarBean> CheckMustVar(int taskid) {
-        String sql= "select apivar_id,api_id,apivar_name,apivar_inputflag,apivar_inputdatatype,apivar_inputdatatypeid,apivar_inputlength,apivar_inputscope,apivar_inputnote,apivar_createdt,apivar_updatedt \n" +
+        String sql= "select apivar_id,api_id,apivar_name,apivar_sample,apivar_inputflag,apivar_inputdatatype,apivar_inputdatatypeid,apivar_inputlength,apivar_inputscope,apivar_inputnote,apivar_createdt,apivar_updatedt \n" +
                 "from qa_apivar where apivar_deleted_flag = 0 and apivar_inputflag =1 and api_id = ? ";
         List<ApiVarBean>  lists=jdbcTemplate.query(sql,new ApiVarBeanRowMapper(),taskid);
         return lists;
@@ -129,7 +130,7 @@ public class ApiVarServiceImpl implements ApiVarService {
 
     @Override
     public List<ApiVarBean> CheckAllVar(int taskid) {
-        String sql= "select apivar_id,api_id,apivar_name,apivar_inputflag,apivar_inputdatatype,apivar_inputdatatypeid,apivar_inputlength,apivar_inputscope,apivar_inputnote,apivar_createdt,apivar_updatedt\n" +
+        String sql= "select apivar_id,api_id,apivar_name,apivar_sample,apivar_inputflag,apivar_inputdatatype,apivar_inputdatatypeid,apivar_inputlength,apivar_inputscope,apivar_inputnote,apivar_createdt,apivar_updatedt\n" +
                 "from qa_apivar where apivar_deleted_flag = 0 and api_id = ?";
         List<ApiVarBean>  lists=jdbcTemplate.query(sql,new ApiVarBeanRowMapper(),taskid);
         return lists;

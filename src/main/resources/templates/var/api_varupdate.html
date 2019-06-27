@@ -15,7 +15,7 @@
 <nav class="navbar navbar-static-top navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">接口变量更新页面</a>
+            <a class="navbar-brand" href="#">变量更新</a>
         </div>
     </div>
 </nav>
@@ -38,19 +38,23 @@
                                 <td input="text" th:text="${apivar.val}"></td>
                             </tr>
                             <tr>
+                                <td>变量例子</td>
+                                <td input="text" th:text="${apivar.val_sample}"></td>
+                            </tr>
+                            <tr>
                                 <td>变量类型</td>
                                 <td input="text" th:text="${apivar.inputDataType}"></td>
                             </tr>
                             <tr>
-                                <td>变量必传标记</td>
+                                <td>必传标记</td>
                                 <td input="text" th:text="${apivar.inputFlag}"></td>
                             </tr>
                             <tr>
-                                <td>xx</td>
+                                <td>最大长度</td>
                                 <td input="text" th:text="${apivar.inputLenght}"></td>
                             </tr>
                             <tr>
-                                <td>yy</td>
+                                <td>备注说明</td>
                                 <td input="text" th:text="${apivar.inputNote}"></td>
                             </tr>
 
