@@ -9,6 +9,12 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .input {
+            margin: 0;
+            width: 1005px;
+        }
+        </style>
 </head>
 <body>
 <div th:insert="~{header :: nav}"></div>
@@ -34,27 +40,27 @@
 
                                 <tr>
                                     <td>变量名称</td>
-                                    <td><input maxlength="10" autocomplete="off"  type="text" name="val" placeholder="变量名称" th:required="变量名称"></td>
+                                    <td><input maxlength="40" autocomplete="off"  type="text" name="val" style="margin: 0px; width: 1005px;" placeholder="变量名称" th:required="变量名称"></td>
                                 </tr>
                                 <tr>
                                     <td>变量Sample</td>
-                                    <td><input maxlength="10" autocomplete="off"  type="text" name="val_sample" placeholder="变量例子" th:required="变量例子" ></td>
+                                    <td><input maxlength="40" autocomplete="off"  type="text" name="val_sample" style="margin: 0px; width: 1005px;" placeholder="变量例子" th:required="变量例子" ></td>
                                 </tr>
                                 <tr>
-                                    <td>变量是否必填0/1</td>
-                                    <td><input maxlength="10" autocomplete="off"  type="text" name="InputFlag" placeholder="是否必传" th:required="请填0或者1"></td>
+                                    <td>变量必填0/1</td>
+                                    <td><input maxlength="10" autocomplete="off"  type="text" name="InputFlag" style="margin: 0px; width: 1005px;" placeholder="是否必传" th:required="请填0或者1"></td>
                                 </tr>
                                 <tr>
                                     <td>变量类型</td>
-                                    <td><input maxlength="40" autocomplete="off" type="text" name="InputDataType" style="margin: 0px; width: 1005px;"></td>
+                                    <td><input maxlength="40" autocomplete="off" type="text" name="InputDataType" style="margin: 0px; width: 1005px;" placeholder="变量类型" th:required="变量类型"></td>
                                 </tr>
                                 <tr>
                                     <td>变量类型iD</td>
-                                    <td><input maxlength="40" autocomplete="off" type="text" name="InputTypeID" style="margin: 0px; width: 1005px;"></td>
+                                    <td><input maxlength="40" autocomplete="off" type="text" name="InputTypeID" style="margin: 0px; width: 1005px;" placeholder="变量类型iD" th:required="变量类型iD"></td>
                                 </tr>
                                 <tr>
                                     <td>变量最大长度</td>
-                                    <td><input maxlength="40" autocomplete="off" type="text" name="InputLenght" style="margin: 0px; width: 1005px;"></td>
+                                    <td><input maxlength="40" autocomplete="off" type="text" name="InputLenght" style="margin: 0px; width: 1005px;" placeholder="变量最大长度" th:required="变量最大长度"></td>
                                 </tr>
 
                                 <tr>
