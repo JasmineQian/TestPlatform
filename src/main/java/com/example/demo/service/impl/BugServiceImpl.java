@@ -128,8 +128,6 @@ public class BugServiceImpl implements BugService {
 
 
     @Override
-/*    public int create(String pname, String crname, String crnum, String tasknum, String oname, String description,
-                      String rca, String solution, String developer, String tester, String bugStatus) {*/
     public int create(Bug bug) {
         Date dt = new Date();
         DateFormat bf = new SimpleDateFormat(dateformat);
@@ -153,8 +151,6 @@ public class BugServiceImpl implements BugService {
     }
 
     @Override
-/*    public int update(long id, String pname, String crname, String crnum, String oname, String tasknum,
-                      String description, String rca, String solution, String developer, String tester, String bugStatus) {*/
     public int update(Bug bug) {
         long id = bug.getId();
 

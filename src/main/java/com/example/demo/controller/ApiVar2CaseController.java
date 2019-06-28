@@ -53,12 +53,6 @@ public class ApiVar2CaseController {
 
             for (int j = 0; j < list.size(); j++) {
                 if (list.get(i).getVal() != list.get(j).getVal()) {
-                    Random random = new Random();
-                    max = list.get(j).getInputLenght();
-                    sb = new StringBuffer("");
-                    for (int k = 0; k < max; k++) {
-                        sb.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
-                    }
                     jsonObject.put(list.get(j).getVal(),list.get(j).getVal_sample());
                 }
             }
@@ -104,16 +98,7 @@ public class ApiVar2CaseController {
             for (int j = 0; j < list.size(); j++) {
 
                 if (list.get(i).getVal() != list.get(j).getVal()) {
-                    Random random = new Random();
-                    max = list.get(j).getInputLenght();
-                    sb = new StringBuffer("");
-                    for (int k = 0; k < max; k++) {
-
-                        sb.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
-                    }
                     jsonObject.put(list.get(j).getVal(),list.get(j).getVal_sample());
-                    //jsonObject.put(list.get(j).getVal(),sb);
-
 
                 } else {
                     jsonObject.put(list.get(j).getVal(),"");
@@ -162,9 +147,7 @@ public class ApiVar2CaseController {
                 max = list.get(j).getInputLenght();
                 sb = new StringBuffer("");
                 if (list.get(i).getVal() != list.get(j).getVal()) {
-                    for (int k = 0; k < max; k++) {
-                        sb.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
-                    }
+                        sb.append(list.get(j).getVal_sample());
                 } else {
                     for (int k = 0; k <= max; k++) {
                         sb.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));

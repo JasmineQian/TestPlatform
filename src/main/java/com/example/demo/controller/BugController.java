@@ -71,7 +71,7 @@ public class BugController {
         while (iterator.hasNext()) {
             String ei = iterator.next().toString();
             System.out.println("iterator value: " + ei);
-            if(ei.equals("role_admin"))
+            if(ei.toLowerCase().equals("role_admin"))
                 userflag = 1;
             break;
         }
