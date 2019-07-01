@@ -31,7 +31,7 @@ public class BugNotifyImpl implements BugNotify {
         SimpleDateFormat sdf= new SimpleDateFormat(dateformat);
         String date =sdf.format(nowAfter.getTimeInMillis());
 
-        String sql = "select bug_id,project_name,cr_name,bug_cr_num,bug_task_num,object_name,bug_description,bug_rca,bug_solution,b.employ_email developer,a.employ_email tester,qa_creationdt,qa_updatedt,STATUS_DES\n" +
+        String sql = "select bug_id,project_name,project_img,cr_name,bug_cr_num,bug_task_num,object_name,bug_description,bug_rca,bug_solution,b.employ_email developer,a.employ_email tester,qa_creationdt,qa_updatedt,STATUS_DES\n" +
                 "from qa_buglist\n" +
                 "join qa_project on bug_project_id = project_id  \n" +
                 "join qa_crtype on cr_id = bug_cr_type_id  \n" +

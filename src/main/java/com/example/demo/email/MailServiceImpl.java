@@ -31,24 +31,7 @@ public class MailServiceImpl implements MailService {
     private String bcc;
 
     @Override
-    public void sendSimpleMail(String to, String subject, String content) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(from);
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(content);
-
-        try {
-            javaMailSender.send(message);
-            logger.info("发送简单邮件成功！");
-        } catch (Exception e) {
-            logger.error("发送简单邮件时发生异常！", e);
-        }
-
-    }
-
-    @Override
-    public void sendHtmlMail(String to, String cc,String subject, String content) {
+    public void sendHtmlMail(String to, String cc,String subject, String content,String img) {
         MimeMessage message = javaMailSender.createMimeMessage();
 
         try {
@@ -61,6 +44,11 @@ public class MailServiceImpl implements MailService {
             helper.setSubject(subject);//邮件主题
             helper.setText(content, true);//邮件内容
 
+            String imagePath = img;
+            FileSystemResource avatar = new FileSystemResource(imagePath);
+            System.out.println(avatar);
+            helper.addInline("avatar",avatar);
+
             javaMailSender.send(message);
             logger.info("发送HTML邮件成功！");
         } catch (MessagingException e) {
@@ -68,26 +56,5 @@ public class MailServiceImpl implements MailService {
         }
     }
 
-    @Override
-    public void sendAttachmentsMail(String to, String subject, String content, String filePath) {
-        MimeMessage message = javaMailSender.createMimeMessage();
-
-        try {
-            MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            helper.setFrom(from);
-            helper.setTo(to);
-            helper.setSubject(subject);
-            helper.setText(content, true);
-
-            FileSystemResource file = new FileSystemResource(new File(filePath));
-            String fileName = filePath.substring(filePath.lastIndexOf(File.separator));
-            helper.addAttachment(fileName, file);
-
-            javaMailSender.send(message);
-            logger.info("发送带附件的邮件成功！");
-        } catch (MessagingException e) {
-            logger.error("发送带附件的邮件时发生异常！", e);
-        }
-    }
 
 }

@@ -11,6 +11,7 @@ public class BugNotifyRowMapper implements RowMapper<BugNotifyBean> {
         //此处要使用表中的字段，不能使用属性
         long id = resultSet.getInt("BUG_ID");
         String pname = resultSet.getString("PROJECT_NAME");
+        String img = resultSet.getString("project_img");
         String cr_name = resultSet.getString("CR_NAME");
         String crmnum = resultSet.getString("BUG_CR_NUM");
         String tasknum = resultSet.getString("BUG_TASK_NUM");
@@ -29,6 +30,7 @@ public class BugNotifyRowMapper implements RowMapper<BugNotifyBean> {
         BugNotifyBean bugNotifyBean = new BugNotifyBean();
         bugNotifyBean.setId(id);
         bugNotifyBean.setPname(pname);
+        bugNotifyBean.setImg(img);
         bugNotifyBean.setOname(oname);
         bugNotifyBean.setCrname(cr_name);
         bugNotifyBean.setCrnum(crmnum);

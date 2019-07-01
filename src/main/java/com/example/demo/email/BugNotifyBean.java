@@ -4,6 +4,7 @@ public class BugNotifyBean {
 
     private long id;
     private String pname;
+    private String img;
     private String crname;
     private String crnum;
     private String tasknum;
@@ -16,6 +17,14 @@ public class BugNotifyBean {
     private String creationdt;
     private String updatedt;
     private String bugStatus;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     public long getId() {
         return id;
@@ -134,6 +143,7 @@ public class BugNotifyBean {
         return "BugNotifyBean{" +
                 "id=" + id +
                 ", pname='" + pname + '\'' +
+                ", img='" + img + '\'' +
                 ", crname='" + crname + '\'' +
                 ", crnum='" + crnum + '\'' +
                 ", tasknum='" + tasknum + '\'' +

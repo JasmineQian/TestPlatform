@@ -23,8 +23,17 @@
                         <table border="1">
                             <tr>
                                 <td>项目名称</td>
-                                <td th:text="${pname}"></td>
+                                <td th:text="${pname}">
+                                </td>
                             </tr>
+                            <tr>
+                                <td>项目LOGO</td>
+                                <td>
+                                    <img src="cid:avatar" />
+                                </td>
+                            </tr>
+
+
                             <tr>
                                 <td>Bug编号</td>
                                 <td th:text="${bugnum}"></td>
