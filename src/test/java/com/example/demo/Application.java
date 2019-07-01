@@ -64,10 +64,10 @@ public class Application {
             context.setVariable("tasknum", bugNotifyBean.getTasknum());
             context.setVariable("solution", bugNotifyBean.getSolution());
 
-            String img = bugNotifyBean.getImg();
+            String img = "src/main/resources/static/image/"+bugNotifyBean.getImg();
             String emailContent = templateEngine.process("emailTemplate", context);
-            mailService.sendHtmlMail("jasqia@acxiom.com", testerEmail,"您好，有一个Bug要关注，谢谢!!", emailContent,img);
-            System.out.println("success");
+            mailService.sendHtmlMail(developerEmail, testerEmail,"您好，有一个Bug要关注，谢谢!!", emailContent,img);
+
         }
 
     }
