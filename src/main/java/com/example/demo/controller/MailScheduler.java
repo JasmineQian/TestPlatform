@@ -65,7 +65,7 @@ public class MailScheduler {
             context.setVariable("tasknum", bugNotifyBean.getTasknum());
             context.setVariable("solution", bugNotifyBean.getSolution());
 
-            String img = "src/main/resources/static/image/"+bugNotifyBean.getImg();
+            String img = "c:\\logo\\"+bugNotifyBean.getImg();
             String emailContent = templateEngine.process("emailTemplate", context);
             mailService.sendHtmlMail(developerEmail, testerEmail,"您好，有一个Bug要关注，谢谢!!", emailContent,img);
 
