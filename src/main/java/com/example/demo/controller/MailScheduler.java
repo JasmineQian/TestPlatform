@@ -7,6 +7,7 @@ import com.example.demo.email.MailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
@@ -23,14 +24,14 @@ public class MailScheduler {
     // 记录器
     Logger logger = LoggerFactory.getLogger(getClass());
 
+    @Value("${imgpath}")
+    String imgpath;
+
     @Autowired
     private BugNotify bugNotify;
 
     @Autowired
     private MailService mailService;
-
-    @Autowired
-    private JavaMailSender javaMailSender;
 
     @Autowired
     private TemplateEngine templateEngine;
@@ -65,7 +66,7 @@ public class MailScheduler {
             context.setVariable("tasknum", bugNotifyBean.getTasknum());
             context.setVariable("solution", bugNotifyBean.getSolution());
 
-            String img = "c:\\logo\\"+bugNotifyBean.getImg();
+            String img = imgpath+bugNotifyBean.getImg();
             String emailContent = templateEngine.process("emailTemplate", context);
             mailService.sendHtmlMail(developerEmail, testerEmail,"您好，有一个Bug要关注，谢谢!!", emailContent,img);
 

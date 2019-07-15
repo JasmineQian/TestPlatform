@@ -35,9 +35,6 @@ public class Application {
     private MailService mailService;
 
     @Autowired
-    private JavaMailSender javaMailSender;
-
-    @Autowired
     private TemplateEngine templateEngine;
 
     @Test
