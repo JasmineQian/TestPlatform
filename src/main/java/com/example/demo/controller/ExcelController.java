@@ -4,12 +4,10 @@ package com.example.demo.controller;
 import com.example.demo.bean.CaseReport;
 import com.example.demo.service.CaseReportService;
 import org.apache.poi.hssf.usermodel.*;
-import org.apache.poi.hssf.util.HSSFColor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -33,19 +31,9 @@ public class ExcelController {
                             @RequestParam(value = "pid", defaultValue = "0") int pid,
                             @RequestParam(value = "crnum",required = false) String crnum,
                             @RequestParam(value = "description",required = false) String description) throws Exception {
-/*        request.setCharacterEncoding("utf-8");
-        int aa = Integer.parseInt(request.getParameter("pid"));
-        String bb = request.getParameter("crnum");
-        String n = request.getParameter("description");
-        String pid = new String(aa.getBytes("ISO-8859-1"),"UTF-8");
-        String crnum = new String(bb.getBytes("ISO-8859-1"),"UTF-8");
-        String description = new String(n.getBytes("ISO-8859-1"),"UTF-8");*/
 
 
         List<CaseReport> lists = caseReportService.findByCondtion(pid, crnum, description);
-        System.out.println(pid);
-        System.out.println(crnum);
-        System.out.println(description);
 
 
         //EXCEL表导出核心代码
@@ -187,22 +175,22 @@ public class ExcelController {
                 try {
                     fileName = new String(fileName.getBytes(), "ISO8859-1");
                 } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    logger.error(e.toString());
+
                 }
                 response.setContentType("application/octet-stream;charset=ISO8859-1");
                 response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
                 response.addHeader("Pargam", "no-cache");
                 response.addHeader("Cache-Control", "no-cache");
             } catch (Exception ex) {
-                ex.printStackTrace();
+                logger.error(ex.toString());
             }
             OutputStream os = response.getOutputStream();
             wb.write(os);
             os.flush();
             os.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e.toString());
         }
     }
 }
