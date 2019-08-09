@@ -9,11 +9,9 @@ public class SearchResult {
 
     private List<Bug> list;
     private int count;
-
     public List<Bug> getList(List<Bug> bugs) {
         return list;
     }
-
 
     public int getCount(int count) {
         return this.count;

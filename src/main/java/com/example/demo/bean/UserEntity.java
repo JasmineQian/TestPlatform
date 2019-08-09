@@ -9,9 +9,7 @@ public class UserEntity {
     private String username;
     private String password;
     private String nickname;
-
     private String roles;
-
     public Long getId() {
         return id;
     }

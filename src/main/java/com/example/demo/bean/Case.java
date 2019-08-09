@@ -7,40 +7,40 @@ import io.swagger.annotations.ApiModelProperty;
 public class Case {
 
     @ApiModelProperty(value="Bug的ID", example="1")
-    private int case_id;
+    private int id;
 
 
     @ApiModelProperty(value="Case的任务ID", example="1")
-    private int case_taskid;
+    private int taskid;
 
     @ApiModelProperty(value="Case的任务名称", example="1")
-    private String case_taskname;
+    private String taskname;
 
     @ApiModelProperty(value="Case的序号", example="1")
-    private int case_num;
+    private int num;
 
     @ApiModelProperty(value="Case的优先级", example="1")
-    private int case_pirority;
-    private String case_piroritymemo;
+    private int pirority;
+    private String piroritymemo;
 
     @ApiModelProperty(value="Case的名称", example="1")
-    private String case_name;
+    private String name;
 
     @ApiModelProperty(value="Case的BODY", example="1")
-    private String case_precondition;
+    private String precondition;
 
     @ApiModelProperty(value="Case的BODY", example="1")
-    private String case_body;
+    private String body;
 
     @ApiModelProperty(value="Case的断言", example="1")
-    private String case_assertion;
+    private String assertion;
 
     @ApiModelProperty(value="Case是否通过标记", example="1")
-    private int case_pass_flag;
-    private String case_pass_memo;
+    private int pass_flag;
+    private String pass_memo;
 
     @ApiModelProperty(value="Case的描述")
-    private String case_memo;
+    private String memo;
 
     @ApiModelProperty(value="创建时间")
     private String creationdt;
@@ -48,92 +48,92 @@ public class Case {
     @ApiModelProperty(value="更新时间")
     private String updatedt;
 
-    public String getCase_taskname() {
-        return case_taskname;
+    public String gettaskname() {
+        return taskname;
     }
 
-    public void setCase_taskname(String case_taskname) {
-        this.case_taskname = case_taskname;
+    public void settaskname(String taskname) {
+        this.taskname = taskname;
     }
 
-    public int getCase_id() {
-        return case_id;
+    public int getid() {
+        return id;
     }
 
-    public void setCase_id(int case_id) {
-        this.case_id = case_id;
+    public void setid(int id) {
+        this.id = id;
     }
 
-    public int getCase_taskid() {
-        return case_taskid;
+    public int gettaskid() {
+        return taskid;
     }
 
-    public void setCase_taskid(int case_taskid) {
-        this.case_taskid = case_taskid;
+    public void settaskid(int taskid) {
+        this.taskid = taskid;
     }
 
-    public int getCase_num() {
-        return case_num;
+    public int getnum() {
+        return num;
     }
 
-    public void setCase_num(int case_num) {
-        this.case_num = case_num;
+    public void setnum(int num) {
+        this.num = num;
     }
 
-    public int getCase_pirority() {
-        return case_pirority;
+    public int getpirority() {
+        return pirority;
     }
 
-    public void setCase_pirority(int case_pirority) {
-        this.case_pirority = case_pirority;
+    public void setpirority(int pirority) {
+        this.pirority = pirority;
     }
 
-    public String getCase_name() {
-        return case_name;
+    public String getname() {
+        return name;
     }
 
-    public void setCase_name(String case_name) {
-        this.case_name = case_name;
+    public void setname(String name) {
+        this.name = name;
     }
 
-    public String getCase_precondition() {
-        return case_precondition;
+    public String getprecondition() {
+        return precondition;
     }
 
-    public void setCase_precondition(String case_precondition) {
-        this.case_precondition = case_precondition;
+    public void setprecondition(String precondition) {
+        this.precondition = precondition;
     }
 
-    public String getCase_body() {
-        return case_body;
+    public String getbody() {
+        return body;
     }
 
-    public void setCase_body(String case_body) {
-        this.case_body = case_body;
+    public void setbody(String body) {
+        this.body = body;
     }
 
-    public String getCase_assertion() {
-        return case_assertion;
+    public String getassertion() {
+        return assertion;
     }
 
-    public void setCase_assertion(String case_assertion) {
-        this.case_assertion = case_assertion;
+    public void setassertion(String assertion) {
+        this.assertion = assertion;
     }
 
-    public int getCase_pass_flag() {
-        return case_pass_flag;
+    public int getpass_flag() {
+        return pass_flag;
     }
 
-    public void setCase_pass_flag(int case_pass_flag) {
-        this.case_pass_flag = case_pass_flag;
+    public void setpass_flag(int pass_flag) {
+        this.pass_flag = pass_flag;
     }
 
-    public String getCase_memo() {
-        return case_memo;
+    public String getmemo() {
+        return memo;
     }
 
-    public void setCase_memo(String case_memo) {
-        this.case_memo = case_memo;
+    public void setmemo(String memo) {
+        this.memo = memo;
     }
 
     public String getCreationdt() {
@@ -152,36 +152,36 @@ public class Case {
         this.updatedt = updatedt;
     }
 
-    public String getCase_piroritymemo() {
-        return case_piroritymemo;
+    public String getpiroritymemo() {
+        return piroritymemo;
     }
 
-    public void setCase_piroritymemo(String case_piroritymemo) {
-        this.case_piroritymemo = case_piroritymemo;
+    public void setpiroritymemo(String piroritymemo) {
+        this.piroritymemo = piroritymemo;
     }
 
-    public String getCase_pass_memo() {
-        return case_pass_memo;
+    public String getpass_memo() {
+        return pass_memo;
     }
 
-    public void setCase_pass_memo(String case_pass_memo) {
-        this.case_pass_memo = case_pass_memo;
+    public void setpass_memo(String pass_memo) {
+        this.pass_memo = pass_memo;
     }
 
     @Override
     public String toString() {
         return "Case{" +
-                "case_id=" + case_id +
-                ", case_taskid=" + case_taskid +
-                ", case_taskname='" + case_taskname + '\'' +
-                ", case_num=" + case_num +
-                ", case_pirority=" + case_pirority +
-                ", case_name='" + case_name + '\'' +
-                ", case_precondition='" + case_precondition + '\'' +
-                ", case_body='" + case_body + '\'' +
-                ", case_assertion='" + case_assertion + '\'' +
-                ", case_pass_flag=" + case_pass_flag +
-                ", case_memo='" + case_memo + '\'' +
+                "id=" + id +
+                ", taskid=" + taskid +
+                ", taskname='" + taskname + '\'' +
+                ", num=" + num +
+                ", pirority=" + pirority +
+                ", name='" + name + '\'' +
+                ", precondition='" + precondition + '\'' +
+                ", body='" + body + '\'' +
+                ", assertion='" + assertion + '\'' +
+                ", pass_flag=" + pass_flag +
+                ", memo='" + memo + '\'' +
                 ", creationdt='" + creationdt + '\'' +
                 ", updatedt='" + updatedt + '\'' +
                 '}';

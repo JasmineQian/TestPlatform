@@ -32,13 +32,13 @@ public class CaseServiceImpl implements CaseService {
 
         int start = (pageon - 1) * 20;
 
-        String sql= "select case_id,case_taskid,task_name,case_num,case_pirority,pirority_name,case_name,case_precondition,case_body,\n" +
-                "case_assertion,case_passflag,casepassflag_name,case_memo,case_creationdt,case_updatedt from qa_case\n" +
-                "join qa_task on task_id = case_taskid\n" +
-                "join qa_pirority on pirority_id = case_pirority\n" +
-                "join qa_casepassflag on casepassflag_id=case_passflag\n" +
-                "where case_deleted_flag =0 and task_deleted_flag = 0\n" +
-                "and case_taskid = ? ";
+        String sql= "select id,taskid,task_name,num,pirority,pirority_name,name,precondition,body,\n" +
+                "assertion,passflag,casepassflag_name,memo,creationdt,updatedt from qa_case\n" +
+                "join qa_task on task_id = taskid\n" +
+                "join qa_pirority on pirority_id = pirority\n" +
+                "join qa_casepassflag on casepassflag_id=passflag\n" +
+                "where deleted_flag =0 and task_deleted_flag = 0\n" +
+                "and taskid = ? ";
 
         String sql2 = sql + " order by 1 desc limit " + start + " , 20";
         //String sql2 = sql+" order by 1 desc offset  "+ start+  "  rows fetch next  20 rows only";
@@ -50,13 +50,13 @@ public class CaseServiceImpl implements CaseService {
     @Override
     public int countCasesbyTaskid(int id,int pageon) {
 
-        String sql= "select case_id,case_taskid,task_name,case_num,case_pirority,pirority_name,case_name,case_precondition,case_body,\n" +
-                "case_assertion,case_passflag,casepassflag_name,case_memo,case_creationdt,case_updatedt from qa_case\n" +
-                "join qa_task on task_id = case_taskid\n" +
-                "join qa_pirority on pirority_id = case_pirority\n" +
-                "join qa_casepassflag on casepassflag_id=case_passflag\n" +
-                "where case_deleted_flag =0 and task_deleted_flag = 0\n" +
-                "and case_taskid = ? ";
+        String sql= "select id,taskid,task_name,num,pirority,pirority_name,name,precondition,body,\n" +
+                "assertion,passflag,casepassflag_name,memo,creationdt,updatedt from qa_case\n" +
+                "join qa_task on task_id = taskid\n" +
+                "join qa_pirority on pirority_id = pirority\n" +
+                "join qa_casepassflag on casepassflag_id=passflag\n" +
+                "where deleted_flag =0 and task_deleted_flag = 0\n" +
+                "and taskid = ? ";
 
         int count = jdbcTemplate.query(sql, new CaseRowMapper(), id).size();
 
@@ -68,12 +68,12 @@ public class CaseServiceImpl implements CaseService {
     @Override
     public Case findById(int id) {
 
-        String sql = "select case_id,case_taskid,task_name,case_num,case_pirority,pirority_name,case_name,case_precondition,case_body,case_assertion,case_passflag,casepassflag_name,case_memo,case_creationdt,case_updatedt\n" +
-                "from qa_case join qa_task on task_id = case_taskid\n" +
-                "join qa_pirority on case_pirority = pirority_id\n" +
-                "join qa_casepassflag on case_passflag =casepassflag_id\n" +
-                "where case_deleted_flag =0 and task_deleted_flag = 0\n" +
-                "and case_id = ?";
+        String sql = "select id,taskid,task_name,num,pirority,pirority_name,name,precondition,body,assertion,passflag,casepassflag_name,memo,creationdt,updatedt\n" +
+                "from qa_case join qa_task on task_id = taskid\n" +
+                "join qa_pirority on pirority = pirority_id\n" +
+                "join qa_casepassflag on passflag =casepassflag_id\n" +
+                "where deleted_flag =0 and task_deleted_flag = 0\n" +
+                "and id = ?";
         Case testcase = jdbcTemplate.queryForObject(sql, new CaseRowMapper(), id);
         return testcase;
     }
@@ -81,23 +81,23 @@ public class CaseServiceImpl implements CaseService {
     @Override
     public int create(Case testcase) {
 
-        String sql ="insert qa_case(case_taskid,case_num,case_pirority,case_name,case_precondition,case_body,case_assertion,case_passflag,case_creationdt,case_updatedt)\n" +
+        String sql ="insert qa_case(taskid,num,pirority,name,precondition,body,assertion,passflag,creationdt,updatedt)\n" +
                 "values(?,?,?,?,?,?,?,?,?,?) ";
 
         Date dt = new Date();
         DateFormat bf = DateFormat.getDateTimeInstance();
         String date = bf.format(dt);
 
-        int taskid = testcase.getCase_taskid();
-        int CASE_NUM =testcase.getCase_num();
-        int CASE_PIRORITY =testcase.getCase_pirority();
-        String CASE_NAME =testcase.getCase_name();
-        String CASE_PRECONDITION =testcase.getCase_precondition();
-        String CASE_BODY =testcase.getCase_body();
-        String CASE_ASSERTION =testcase.getCase_assertion();
-        int CASE_PASSFLAG =testcase.getCase_pass_flag();
+        int taskid = testcase.gettaskid();
+        int NUM =testcase.getnum();
+        int PIRORITY =testcase.getpirority();
+        String NAME =testcase.getname();
+        String PRECONDITION =testcase.getprecondition();
+        String BODY =testcase.getbody();
+        String ASSERTION =testcase.getassertion();
+        int PASSFLAG =testcase.getpass_flag();
 
-        int count = jdbcTemplate.update(sql,taskid, CASE_NUM, CASE_PIRORITY, CASE_NAME, CASE_PRECONDITION, CASE_BODY, CASE_ASSERTION, CASE_PASSFLAG, date, date);
+        int count = jdbcTemplate.update(sql,taskid, NUM, PIRORITY, NAME, PRECONDITION, BODY, ASSERTION, PASSFLAG, date, date);
         return count;
     }
 
@@ -109,29 +109,29 @@ public class CaseServiceImpl implements CaseService {
     @Override
     public int update(Case testcase) {
 
-        String sql = "update qa_case set  case_num = ?,case_pirority = ?, case_name = ?, case_precondition = ?,\n" +
-                "case_body = ?, case_assertion = ?, case_passflag = ?, case_updatedt= ? where case_id= ?";
+        String sql = "update qa_case set  num = ?,pirority = ?, name = ?, precondition = ?,\n" +
+                "body = ?, assertion = ?, passflag = ?, updatedt= ? where id= ?";
 
         Date dt = new Date();
         DateFormat bf = DateFormat.getDateTimeInstance();
         String date = bf.format(dt);
 
-        int id = testcase.getCase_id();
-        int CASE_NUM =testcase.getCase_num();
-        int CASE_PIRORITY =testcase.getCase_pirority();
-        String CASE_NAME =testcase.getCase_name();
-        String CASE_PRECONDITION =testcase.getCase_precondition();
-        String CASE_BODY =testcase.getCase_body();
-        String CASE_ASSERTION =testcase.getCase_assertion();
-        int CASE_PASSFLAG =testcase.getCase_pass_flag();
+        int id = testcase.getid();
+        int NUM =testcase.getnum();
+        int PIRORITY =testcase.getpirority();
+        String NAME =testcase.getname();
+        String PRECONDITION =testcase.getprecondition();
+        String BODY =testcase.getbody();
+        String ASSERTION =testcase.getassertion();
+        int PASSFLAG =testcase.getpass_flag();
 
-        int count = jdbcTemplate.update(sql, CASE_NUM, CASE_PIRORITY, CASE_NAME, CASE_PRECONDITION, CASE_BODY, CASE_ASSERTION, CASE_PASSFLAG, date, id);
+        int count = jdbcTemplate.update(sql, NUM, PIRORITY, NAME, PRECONDITION, BODY, ASSERTION, PASSFLAG, date, id);
         return count;
     }
 
     @Override
     public int deleteByID(int id) {
-        String sql = "update qa_case set  case_deleted_flag =1, case_deleted_comment = '页面逻辑删除', case_updatedt= ? where case_id= ?";
+        String sql = "update qa_case set  deleted_flag =1, deleted_comment = '页面逻辑删除', updatedt= ? where id= ?";
         Date dt = new Date();
         SimpleDateFormat bf = new SimpleDateFormat(dateformat);
         String date = bf.format(dt);

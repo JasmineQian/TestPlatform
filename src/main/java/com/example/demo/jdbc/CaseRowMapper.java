@@ -10,36 +10,36 @@ public class CaseRowMapper implements RowMapper<Case> {
     @Override
     public Case mapRow(ResultSet resultSet, int i) throws SQLException {
         //此处要使用表中的字段，不能使用属性
-        int case_id = resultSet.getInt("case_id");
-        int case_taskid =resultSet.getInt("case_taskid");
-        String case_taskname = resultSet.getString("task_name");
-        int case_num =resultSet.getInt("case_num");
-        int case_pirority = resultSet.getInt("case_pirority");
-        String case_piroritymemo = resultSet.getString("pirority_name");
-        String case_name = resultSet.getString("case_name");
-        String case_precondition = resultSet.getString("case_precondition");
-        String case_body = resultSet.getString("case_body");;
-        String case_assertion = resultSet.getString("case_assertion");
-        int case_pass_flag = resultSet.getInt("case_passflag");
-        String case_passflagmemo = resultSet.getString("casepassflag_name");
-        String case_memo = resultSet.getString("case_memo");
-        String creationdt = resultSet.getString("case_creationdt");;
-        String updatedt = resultSet.getString("case_updatedt");;
+        int id = resultSet.getInt("id");
+        int taskid =resultSet.getInt("taskid");
+        String taskname = resultSet.getString("task_name");
+        int num =resultSet.getInt("num");
+        int pirority = resultSet.getInt("pirority");
+        String piroritymemo = resultSet.getString("pirority_name");
+        String name = resultSet.getString("name");
+        String precondition = resultSet.getString("precondition");
+        String body = resultSet.getString("body");;
+        String assertion = resultSet.getString("assertion");
+        int pass_flag = resultSet.getInt("passflag");
+        String passflagmemo = resultSet.getString("casepassflag_name");
+        String memo = resultSet.getString("memo");
+        String creationdt = resultSet.getString("creationdt");;
+        String updatedt = resultSet.getString("updatedt");;
 
         Case testcase= new Case();
-        testcase.setCase_id(case_id);
-        testcase.setCase_taskid(case_taskid);
-        testcase.setCase_taskname(case_taskname);
-        testcase.setCase_num(case_num);
-        testcase.setCase_pirority(case_pirority);
-        testcase.setCase_piroritymemo(case_piroritymemo);
-        testcase.setCase_name(case_name);
-        testcase.setCase_precondition(case_precondition);
-        testcase.setCase_body(case_body);
-        testcase.setCase_assertion(case_assertion);
-        testcase.setCase_pass_flag(case_pass_flag);
-        testcase.setCase_pass_memo(case_passflagmemo);
-        testcase.setCase_memo(case_memo);
+        testcase.setid(id);
+        testcase.settaskid(taskid);
+        testcase.settaskname(taskname);
+        testcase.setnum(num);
+        testcase.setpirority(pirority);
+        testcase.setpiroritymemo(piroritymemo);
+        testcase.setname(name);
+        testcase.setprecondition(precondition);
+        testcase.setbody(body);
+        testcase.setassertion(assertion);
+        testcase.setpass_flag(pass_flag);
+        testcase.setpass_memo(passflagmemo);
+        testcase.setmemo(memo);
         testcase.setCreationdt(creationdt);
         testcase.setUpdatedt(updatedt);
 
