@@ -95,8 +95,8 @@ public class CaseController {
             model.addAttribute("testcase", testCase);
             return "case/case_details";
         } else {
-            int taskid= testCase.gettaskid();
-            model.addAttribute("taskid", taskid);
+
+            model.addAttribute("taskid", 0);
             model.addAttribute("message", "查询失败");
             return "case/case_auto";
         }
@@ -124,14 +124,16 @@ public class CaseController {
     public String SearchCaseById(Model model, @RequestParam("caseId") int id) {
 
         Case testcase = caseService.findById(id);
-        int taskid = testcase.gettaskid();
+
 
         if (testcase != null) {
+            int taskid = testcase.gettaskid();
+            model.addAttribute("taskid", taskid);
             model.addAttribute("cc", testcase);
             return "case/case_details";
         } else {
             model.addAttribute("message", "查询case失败");
-            model.addAttribute("taskid", taskid);
+            model.addAttribute("taskid", 0);
             return "case/case_auto";
         }
     }
