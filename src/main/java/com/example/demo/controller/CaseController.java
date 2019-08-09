@@ -40,7 +40,6 @@ public class CaseController {
     @RequestMapping("/findCaseByTaskId")
     public String findCaseByTaskId(Model model, @RequestParam(value = "pageon", defaultValue = "1") int pageon
             , @RequestParam("taskId") int id) {
-
         Task task = taskService.findById(id);
         model.addAttribute("taskid", id);
         model.addAttribute("task", task);
@@ -88,13 +87,15 @@ public class CaseController {
         logger.info("根据Case的ID来查找case信息");
         model.addAttribute("caseId", "id");
         Case testCase = caseService.findById(id);
-        int taskid= testCase.getCase_taskid();
+
         if (testCase != null) {
             logger.info("查询成功！");
+            int taskid= testCase.getCase_taskid();
             model.addAttribute("taskid", taskid);
             model.addAttribute("testcase", testCase);
             return "case/case_details";
         } else {
+            int taskid= testCase.getCase_taskid();
             model.addAttribute("taskid", taskid);
             model.addAttribute("message", "查询失败");
             return "case/case_auto";
