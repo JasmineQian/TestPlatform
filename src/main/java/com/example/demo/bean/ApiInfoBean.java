@@ -2,100 +2,100 @@ package com.example.demo.bean;
 
 public class ApiInfoBean {
 
-    private int api_id;
-    private int api_pid;
-    private String api_porjectname;
-    private String api_name;
-    private String api_hostname;
-    private String api_path;
-    private String api_memo;
-    private String api_creatdt;
-    private String api_updatedt;
+    private int id;
+    private int pid;
+    private String porjectname;
+    private String name;
+    private String hostname;
+    private String path;
+    private String memo;
+    private String creatdt;
+    private String updatedt;
 
-    public int getApi_id() {
-        return api_id;
+    public int getid() {
+        return id;
     }
 
-    public void setApi_id(int api_id) {
-        this.api_id = api_id;
+    public void setid(int id) {
+        this.id = id;
     }
 
-    public int getApi_pid() {
-        return api_pid;
+    public int getpid() {
+        return pid;
     }
 
-    public void setApi_pid(int api_pid) {
-        this.api_pid = api_pid;
+    public void setpid(int pid) {
+        this.pid = pid;
     }
 
-    public String getApi_porjectname() {
-        return api_porjectname;
+    public String getporjectname() {
+        return porjectname;
     }
 
-    public void setApi_porjectname(String api_porjectname) {
-        this.api_porjectname = api_porjectname;
+    public void setporjectname(String porjectname) {
+        this.porjectname = porjectname;
     }
 
-    public String getApi_name() {
-        return api_name;
+    public String getname() {
+        return name;
     }
 
-    public void setApi_name(String api_name) {
-        this.api_name = api_name;
+    public void setname(String name) {
+        this.name = name;
     }
 
-    public String getApi_hostname() {
-        return api_hostname;
+    public String gethostname() {
+        return hostname;
     }
 
-    public void setApi_hostname(String api_hostname) {
-        this.api_hostname = api_hostname;
+    public void sethostname(String hostname) {
+        this.hostname = hostname;
     }
 
-    public String getApi_path() {
-        return api_path;
+    public String getpath() {
+        return path;
     }
 
-    public void setApi_path(String api_path) {
-        this.api_path = api_path;
+    public void setpath(String path) {
+        this.path = path;
     }
 
-    public String getApi_memo() {
-        return api_memo;
+    public String getmemo() {
+        return memo;
     }
 
-    public void setApi_memo(String api_memo) {
-        this.api_memo = api_memo;
+    public void setmemo(String memo) {
+        this.memo = memo;
     }
 
-    public String getApi_creatdt() {
-        return api_creatdt;
+    public String getcreatdt() {
+        return creatdt;
     }
 
-    public void setApi_creatdt(String api_creatdt) {
-        this.api_creatdt = api_creatdt;
+    public void setcreatdt(String creatdt) {
+        this.creatdt = creatdt;
     }
 
-    public String getApi_updatedt() {
-        return api_updatedt;
+    public String getupdatedt() {
+        return updatedt;
     }
 
-    public void setApi_updatedt(String api_updatedt) {
-        this.api_updatedt = api_updatedt;
+    public void setupdatedt(String updatedt) {
+        this.updatedt = updatedt;
     }
 
     @Override
     public String toString() {
         return "ApiInfoBean{" +
-                "api_id=" + api_id +
-                ", api_pid=" + api_pid +
-                ", api_porjectname='" + api_porjectname + '\'' +
-                ", api_name='" + api_name + '\'' +
-                ", api_hostname='" + api_hostname + '\'' +
-                ", api_path='" + api_path + '\'' +
-                ", api_memo='" + api_memo + '\'' +
-                ", api_creatdt='" + api_creatdt + '\'' +
-                ", api_updatedt='" + api_updatedt + '\'' +
+                "id=" + id +
+                ", pid=" + pid +
+                ", porjectname='" + porjectname + '\'' +
+                ", name='" + name + '\'' +
+                ", hostname='" + hostname + '\'' +
+                ", path='" + path + '\'' +
+                ", memo='" + memo + '\'' +
+                ", creatdt='" + creatdt + '\'' +
+                ", updatedt='" + updatedt + '\'' +
                 '}';
     }
 

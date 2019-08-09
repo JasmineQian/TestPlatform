@@ -4,7 +4,7 @@ public class ApiVarBean {
 
     private int num;
     private String val;
-    private String val_sample;
+    private String valsample;
     private int InputFlag;
     private String InputDataType;
     private int InputTypeID;
@@ -29,12 +29,12 @@ public class ApiVarBean {
         this.val = val;
     }
 
-    public String getVal_sample() {
-        return val_sample;
+    public String getValsample() {
+        return valsample;
     }
 
     public void setVal_sample(String val_sample) {
-        this.val_sample = val_sample;
+        this.valsample = val_sample;
     }
 
     public int getInputFlag() {
@@ -83,7 +83,7 @@ public class ApiVarBean {
         return "ApiVarBean{" +
                 "num=" + num +
                 ", val='" + val + '\'' +
-                ", val_sample='" + val_sample + '\'' +
+                ", val_sample='" + valsample + '\'' +
                 ", InputFlag=" + InputFlag +
                 ", InputDataType='" + InputDataType + '\'' +
                 ", InputTypeID=" + InputTypeID +

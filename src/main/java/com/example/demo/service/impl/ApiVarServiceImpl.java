@@ -33,7 +33,7 @@ public class ApiVarServiceImpl implements ApiVarService {
 
         int num = apiVarBean.getNum();
         String valname = apiVarBean.getVal();
-        String valsample = apiVarBean.getVal_sample();
+        String valsample = apiVarBean.getValsample();
         int mamdatoryflag = apiVarBean.getInputFlag();
         String Type = apiVarBean.getInputDataType();
         int TypeID = apiVarBean.getInputTypeID();
@@ -85,7 +85,7 @@ public class ApiVarServiceImpl implements ApiVarService {
 
         int num = apiVarBean.getNum();
         String valname = apiVarBean.getVal();
-        String valsample = apiVarBean.getVal_sample();
+        String valsample = apiVarBean.getValsample();
         int mamdatoryflag = apiVarBean.getInputFlag();
         String Type = apiVarBean.getInputDataType();
         int TypeID = apiVarBean.getInputTypeID();

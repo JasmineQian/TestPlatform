@@ -53,18 +53,18 @@ public class ApiVar2CaseController {
 
             for (int j = 0; j < list.size(); j++) {
                 if (list.get(i).getVal() != list.get(j).getVal()) {
-                    jsonObject.put(list.get(j).getVal(),list.get(j).getVal_sample());
+                    jsonObject.put(list.get(j).getVal(),list.get(j).getValsample());
                 }
             }
 
             body = jsonObject.toString();
             System.out.println(body);
             ApiCaseBean apiCaseBean = new ApiCaseBean();
-            apiCaseBean.setApiCase_taskid(taskid);
-            apiCaseBean.setApiCase_name(var);
-            apiCaseBean.setApiCase_body(body);
-            apiCaseBean.setApiCase_asseertion(null);
-            apiCaseBean.setApiCase_priorityid(3);
+            apiCaseBean.settaskid(taskid);
+            apiCaseBean.setname(var);
+            apiCaseBean.setbody(body);
+            apiCaseBean.setasseertion(null);
+            apiCaseBean.setpriorityid(3);
             apiCaseBean.setCasetype_id(1);
 
             int count = apiCaseService.add(apiCaseBean);
@@ -98,7 +98,7 @@ public class ApiVar2CaseController {
             for (int j = 0; j < list.size(); j++) {
 
                 if (list.get(i).getVal() != list.get(j).getVal()) {
-                    jsonObject.put(list.get(j).getVal(),list.get(j).getVal_sample());
+                    jsonObject.put(list.get(j).getVal(),list.get(j).getValsample());
 
                 } else {
                     jsonObject.put(list.get(j).getVal(),"");
@@ -107,11 +107,11 @@ public class ApiVar2CaseController {
 
             body = jsonObject.toString();
             ApiCaseBean apiCaseBean = new ApiCaseBean();
-            apiCaseBean.setApiCase_taskid(taskid);
-            apiCaseBean.setApiCase_name(var);
-            apiCaseBean.setApiCase_body(body);
-            apiCaseBean.setApiCase_asseertion(null);
-            apiCaseBean.setApiCase_priorityid(3);
+            apiCaseBean.settaskid(taskid);
+            apiCaseBean.setname(var);
+            apiCaseBean.setbody(body);
+            apiCaseBean.setasseertion(null);
+            apiCaseBean.setpriorityid(3);
             apiCaseBean.setCasetype_id(2);
 
             int count = apiCaseService.add(apiCaseBean);
@@ -147,7 +147,7 @@ public class ApiVar2CaseController {
                 max = list.get(j).getInputLenght();
                 sb = new StringBuffer("");
                 if (list.get(i).getVal() != list.get(j).getVal()) {
-                        sb.append(list.get(j).getVal_sample());
+                        sb.append(list.get(j).getValsample());
                 } else {
                     for (int k = 0; k <= max; k++) {
                         sb.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
@@ -160,11 +160,11 @@ public class ApiVar2CaseController {
 
             body = jsonObject.toString();
             ApiCaseBean apiCaseBean = new ApiCaseBean();
-            apiCaseBean.setApiCase_taskid(taskid);
-            apiCaseBean.setApiCase_name(var);
-            apiCaseBean.setApiCase_body(body);
-            apiCaseBean.setApiCase_asseertion(null);
-            apiCaseBean.setApiCase_priorityid(3);
+            apiCaseBean.settaskid(taskid);
+            apiCaseBean.setname(var);
+            apiCaseBean.setbody(body);
+            apiCaseBean.setasseertion(null);
+            apiCaseBean.setpriorityid(3);
             apiCaseBean.setCasetype_id(3);
 
             int count = apiCaseService.add(apiCaseBean);
