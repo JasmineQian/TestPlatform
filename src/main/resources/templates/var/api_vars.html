@@ -43,9 +43,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">API接口入参详情
-                    <a th:href="@{/downloadcases(apiInfoId=${infoBean.api_id})}" input="button"
+                    <a th:href="@{/downloadcases(apiInfoId=${infoBean.id})}" input="button"
                        class="btn btn-danger">下载生成的测试数据</a>
-                    <a th:href="@{/insertAPIVarPage(apiInfoId=${infoBean.api_id})}" input="button"
+                    <a th:href="@{/insertAPIVarPage(apiInfoId=${infoBean.id})}" input="button"
                        class="btn btn-info">新增API接口的变量</a></h3>
                 </div>
                 <div class="panel-body">
@@ -55,23 +55,23 @@
 
                             <tr>
                                 <td>项目名称</td>
-                                <td input="text" th:text="${infoBean.api_porjectname}"></td>
+                                <td input="text" th:text="${infoBean.projectname}"></td>
                                 <td>接口名称</td>
-                                <td input="text" th:text="${infoBean.api_name}"></td>
+                                <td input="text" th:text="${infoBean.name}"></td>
                                 <td>接口路径</td>
-                                <td input="text" th:text="${infoBean.api_path}"></td>
+                                <td input="text" th:text="${infoBean.path}"></td>
                             </tr>
                             <tr>
                                 <td colspan="2" align="center"><a
-                                        th:href="@{/CheckMustVar(taskid=${infoBean.api_id})}"
+                                        th:href="@{/CheckMustVar(taskid=${infoBean.id})}"
                                         value="" class="btn btn-info"
                                         onclick="alert('请求传入的xx参数未传')">自动生成请求传入的必传参数未传的用例</a></td>
                                 <td colspan="2" align="center"><a
-                                        th:href="@{/CheckMustVarEmpty(taskid=${infoBean.api_id})}"
+                                        th:href="@{/CheckMustVarEmpty(taskid=${infoBean.id})}"
                                         value="" class="btn btn-info"
                                         onclick="alert('请求传入的xx参数是空字符串')">请求传入的xx参数是空字符串</a></td>
                                 <td colspan="2" align="center"><a
-                                        th:href="@{/CheckVarOverLength(taskid=${infoBean.api_id})}"
+                                        th:href="@{/CheckVarOverLength(taskid=${infoBean.id})}"
                                         value="" class="btn btn-info"
                                         onclick="alert('请求传入的xx参数超过最大长度')">请求传入的xx参数超过最大长度</a></td>
                             </tr>
@@ -98,10 +98,10 @@
                     <tr th:each="cc:${var}" display="inline-block">
                         <td th:text="${cc.num}"></td>
                         <td th:text="${cc.val}"></td>
-                        <td th:text="${cc.val_sample}"></td>
-                        <td th:text="${cc.InputFlag}"></td>
-                        <td th:text="${cc.InputDataType}"></td>
-                        <td th:text="${cc.InputLenght}"></td>
+                        <td th:text="${cc.valsample}"></td>
+                        <td th:text="${cc.inputFlag}"></td>
+                        <td th:text="${cc.inputDataType}"></td>
+                        <td th:text="${cc.inputLenght}"></td>
                         <td>
                             <a th:href="@{/apiVartoUpdate(id=${cc.num})}" input="button" class="btn btn-info">更新|未做</a>
                             <a th:href="@{/delAPiVarById(id=${cc.num})}" input="button" class="btn btn-danger"

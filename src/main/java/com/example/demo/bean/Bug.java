@@ -1,54 +1,23 @@
 package com.example.demo.bean;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(value="Bug实体类",description = "这是Bug对象")
 public class Bug {
 
-    @ApiModelProperty(hidden =true)
     private long id;
 
-    @ApiModelProperty(value="项目名称", example="宜家")
     private String pname;
-
-    @ApiModelProperty(value="CR类型", example="内部不收费CR")
     private String crname;
-
-    @ApiModelProperty(value="CR编号", example="CR198")
     private String crnum;
-
-    @ApiModelProperty(value="Task编号", example="Task#111")
     private String tasknum;
-
-    @ApiModelProperty(value="测试类型名称", example="API接口功能测试")
     private String oname;
-
-    @ApiModelProperty(value="Bug的简单描述", example="接口中未传入签名字段")
     private String description;
-
-    @ApiModelProperty(value="Bug的详细描述", example="接口中未传入签名字段，balabala。。。")
     private String rca;
-
-    @ApiModelProperty(value="Bug的解决方案", example="接口中新增了该必传参数的校验")
     private String solution;
-
-    @ApiModelProperty(value="Bug的解决方案", example="接口中新增了该必传参数的校验")
     private String tracking;
-
-    @ApiModelProperty(value="开发人员", example="张三开发")
     private String developer;
-
-    @ApiModelProperty(value="测试人员", example="李四测试")
     private String tester;
-
-    @ApiModelProperty(value="创建时间")
     private String creationdt;
-
-    @ApiModelProperty(value="更新时间")
     private String updatedt;
-
-    @ApiModelProperty(value="bug的状态", example="1")
     private String bugStatus;
 
     public String getBugStatus() {

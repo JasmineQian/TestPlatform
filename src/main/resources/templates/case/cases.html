@@ -80,14 +80,14 @@
                         <th>操作按钮</th>
                     </tr>
                     <tr th:each="cc:${testcase}" display="inline-block">
-                        <td th:text="${cc.case_num}"></td>
-                        <td class="wordtoolong" th:text="${cc.case_name}"></td>
-                        <td th:text="${cc.case_piroritymemo}"></td>
-                        <td th:text="${cc.case_pass_memo}"></td>
+                        <td th:text="${cc.num}"></td>
+                        <td class="wordtoolong" th:text="${cc.name}"></td>
+                        <td th:text="${cc.piroritymemo}"></td>
+                        <td th:text="${cc.pass_memo}"></td>
                         <td>
-                            <a th:href="@{/SearchCaseById(caseId=${cc.case_id})}" input="button"
+                            <a th:href="@{/SearchCaseById(caseId=${cc.id})}" input="button"
                                class="btn btn-info">查看</a>
-                            <a th:href="@{/delCaseById(caseId=${cc.case_id})}" input="button" class="btn btn-danger"
+                            <a th:href="@{/delCaseById(caseId=${cc.id})}" input="button" class="btn btn-danger"
                                onclick="alert('确认删除此测试用例吗？')">删除</a>
                         </td>
                     </tr>

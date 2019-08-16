@@ -28,16 +28,17 @@ public class ApiInfoServiceImpl implements ApiInfoService {
     public List<ApiInfoBean> findAllApi(int pageon, int pid, String apiname) {
         int start = (pageon - 1) * 20;
 
-        String sql = "select id,pid,project_name,name,hostname,path,memo,createdt,updatedt\n" +
-                "from qa_api join qa_project on pid =project_id where deleted_flag = 0 ";
+        String sql = "select api_id,api_pid,project_name,api_name,api_hostname,api_path,api_memo,api_deleted_flag,api_createdt,api_updatedt\n" +
+                "from qa_api \n" +
+                "join qa_project on api_pid =project_id where api_deleted_flag = 0";
 
         List<Object> queryList = new ArrayList<Object>();
         if (pid != 0) {
-            sql += " and pid = ? ";
+            sql += " and api_pid = ? ";
             queryList.add(pid);
         }
         if (apiname != null) {
-            sql += " and name like ? ";
+            sql += " and project_name like ? ";
             queryList.add("%" + apiname.trim() + "%");
         }
         String sql2 = sql + " order by 1 desc limit " + start + " , 20";
@@ -48,16 +49,17 @@ public class ApiInfoServiceImpl implements ApiInfoService {
 
     @Override
     public int countAll(int pageon, int pid, String apiname) {
-        String sql = "select id,pid,project_name,name,hostname,path,memo,createdt,updatedt\n" +
-                "from qa_api join qa_project on pid =project_id where deleted_flag = 0 ";
+        String sql = "select api_id,api_pid,project_name,api_name,api_hostname,api_path,api_memo,api_deleted_flag,api_createdt,api_updatedt\n" +
+                "from qa_api \n" +
+                "join qa_project on api_pid =project_id where api_deleted_flag = 0";
 
         List<Object> queryList = new ArrayList<Object>();
         if (pid != 0) {
-            sql += " and pid = ? ";
+            sql += " and api_pid = ? ";
             queryList.add(pid);
         }
         if (apiname != null) {
-            sql += " and name like ? ";
+            sql += " and project_name like ? ";
             queryList.add("%" + apiname.trim() + "%");
         }
         return jdbcTemplate.query(sql, queryList.toArray(), new ApiInfoRowMapper()).size();
@@ -65,8 +67,8 @@ public class ApiInfoServiceImpl implements ApiInfoService {
 
     @Override
     public ApiInfoBean findApiById(int id) {
-        String sql = "select id, pid,project_name,name,hostname,path,memo,createdt,updatedt\n" +
-                "from qa_api join qa_project on pid =project_id where deleted_flag = 0 and id =? ";
+        String sql = "select api_id,api_pid,project_name,api_name,api_hostname,api_path,api_memo,api_deleted_flag,api_createdt,api_updatedt\n" +
+                "from qa_api join qa_project on api_pid =project_id where api_deleted_flag = 0  and api_id = ?";
         ApiInfoBean apiInfoBean = jdbcTemplate.queryForObject(sql, new ApiInfoRowMapper(), id);
 
         return apiInfoBean;
@@ -76,14 +78,14 @@ public class ApiInfoServiceImpl implements ApiInfoService {
     public int createApi(ApiInfoBean apiInfoBean) {
 
 
-        String sql = "insert qa_api (pid,name,hostname,path,memo,createdt,updatedt) \n" +
+        String sql = "insert qa_api (api_pid,api_name,api_hostname,api_path,api_memo,api_createdt,api_updatedt) \n" +
                 "values(?,?,?,?,?,?,?)";
 
-        int pid = apiInfoBean.getpid();
-        String name = apiInfoBean.getname();
-        String hostname = apiInfoBean.gethostname();
-        String path = apiInfoBean.getpath();
-        String memo = apiInfoBean.getmemo();
+        int pid = apiInfoBean.getPid();
+        String name = apiInfoBean.getName();
+        String hostname = apiInfoBean.getHostname();
+        String path = apiInfoBean.getPath();
+        String memo = apiInfoBean.getMemo();
 
         Date dt = new Date();
         DateFormat bf = new SimpleDateFormat(dateformat);
@@ -95,14 +97,14 @@ public class ApiInfoServiceImpl implements ApiInfoService {
 
     @Override
     public int updateApi(ApiInfoBean apiInfoBean) {
-        String sql = "update qa_api set name= ?,hostname = ?,path= ?,memo =?,updatedt =?\n" +
-                "where id= ? and pid = ? and deleted_flag = 0";
-        int id = apiInfoBean.getid();
-        int pid = apiInfoBean.getpid();
-        String name = apiInfoBean.getname();
-        String hostname = apiInfoBean.gethostname();
-        String path = apiInfoBean.getpath();
-        String memo = apiInfoBean.getmemo();
+        String sql = "update qa_api set api_name= ?,api_hostname = ?,api_path= ?,api_memo =?,api_updatedt =?\n" +
+                "where api_pid= ? and api_pid = ? and api_deleted_flag = 0";
+        int id = apiInfoBean.getId();
+        int pid = apiInfoBean.getPid();
+        String name = apiInfoBean.getName();
+        String hostname = apiInfoBean.getHostname();
+        String path = apiInfoBean.getPath();
+        String memo = apiInfoBean.getMemo();
         Date dt = new Date();
         DateFormat bf = new SimpleDateFormat(dateformat);
         String date = bf.format(dt);
@@ -112,7 +114,7 @@ public class ApiInfoServiceImpl implements ApiInfoService {
 
     @Override
     public int deleteApi(int id) {
-        String sql = "update qa_api set  deleted_flag = 1 ,updatedt =? where id= ? ";
+        String sql = "update qa_api set  api_deleted_flag = 1 ,api_updatedt =? where api_pid= ? ";
 
         Date dt = new Date();
         DateFormat bf = new SimpleDateFormat(dateformat);

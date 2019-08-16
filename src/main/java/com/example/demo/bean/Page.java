@@ -1,10 +1,8 @@
 package com.example.demo.bean;
 
-import io.swagger.annotations.ApiModel;
-
 import java.io.Serializable;
 
-@ApiModel(value="分页的实体类",description = "这是分页Page对象")
+
 public class Page implements Serializable {
 
     private static final long serialVersionUID = 1L;

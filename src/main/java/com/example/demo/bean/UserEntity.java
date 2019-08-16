@@ -1,8 +1,5 @@
 package com.example.demo.bean;
 
-import io.swagger.annotations.ApiModel;
-
-@ApiModel(value="UserEntity的实体类",description = "这是UserEntity对象")
 public class UserEntity {
 
     private Long id;

@@ -90,7 +90,7 @@ public class CaseController {
 
         if (testCase != null) {
             logger.info("查询成功！");
-            int taskid= testCase.gettaskid();
+            int taskid= testCase.getTaskid();
             model.addAttribute("taskid", taskid);
             model.addAttribute("testcase", testCase);
             return "case/case_details";
@@ -106,7 +106,7 @@ public class CaseController {
     @GetMapping("/delCaseById")
     public String delCaseById(Model model, @RequestParam("caseId") int id) {
         Case testcase= caseService.findById(id);
-        int taskid= testcase.gettaskid();
+        int taskid= testcase.getTaskid();
         int count = caseService.deleteByID(id);
         if (count != 0) {
             model.addAttribute("message", "删除Case成功");
@@ -127,7 +127,7 @@ public class CaseController {
 
 
         if (testcase != null) {
-            int taskid = testcase.gettaskid();
+            int taskid = testcase.getTaskid();
             model.addAttribute("taskid", taskid);
             model.addAttribute("cc", testcase);
             return "case/case_details";
@@ -140,7 +140,7 @@ public class CaseController {
 
     @PostMapping("/UpdateCaseById")
     public String UpdateCaseById(Model model, Case testcase) {
-        int taskid = testcase.gettaskid();
+        int taskid = testcase.getTaskid();
         int count = caseService.update(testcase);
         System.out.println(taskid);
         System.out.println(testcase);
@@ -176,7 +176,7 @@ public class CaseController {
     @PostMapping("/insertCase")
     public String insertCase(Model model, Case testcase) {
         System.out.println(testcase);
-        int taskid = testcase.gettaskid();
+        int taskid = testcase.getTaskid();
         int count = caseService.create(testcase);
         if (count == 1) {
             model.addAttribute("taskid", taskid);

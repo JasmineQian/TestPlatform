@@ -4,7 +4,7 @@ public class ApiInfoBean {
 
     private int id;
     private int pid;
-    private String porjectname;
+    private String projectname;
     private String name;
     private String hostname;
     private String path;
@@ -12,75 +12,75 @@ public class ApiInfoBean {
     private String creatdt;
     private String updatedt;
 
-    public int getid() {
+    public int getId() {
         return id;
     }
 
-    public void setid(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public int getpid() {
+    public int getPid() {
         return pid;
     }
 
-    public void setpid(int pid) {
+    public void setPid(int pid) {
         this.pid = pid;
     }
 
-    public String getporjectname() {
-        return porjectname;
+    public String getProjectname() {
+        return projectname;
     }
 
-    public void setporjectname(String porjectname) {
-        this.porjectname = porjectname;
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
     }
 
-    public String getname() {
+    public String getName() {
         return name;
     }
 
-    public void setname(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String gethostname() {
+    public String getHostname() {
         return hostname;
     }
 
-    public void sethostname(String hostname) {
+    public void setHostname(String hostname) {
         this.hostname = hostname;
     }
 
-    public String getpath() {
+    public String getPath() {
         return path;
     }
 
-    public void setpath(String path) {
+    public void setPath(String path) {
         this.path = path;
     }
 
-    public String getmemo() {
+    public String getMemo() {
         return memo;
     }
 
-    public void setmemo(String memo) {
+    public void setMemo(String memo) {
         this.memo = memo;
     }
 
-    public String getcreatdt() {
+    public String getCreatdt() {
         return creatdt;
     }
 
-    public void setcreatdt(String creatdt) {
+    public void setCreatdt(String creatdt) {
         this.creatdt = creatdt;
     }
 
-    public String getupdatedt() {
+    public String getUpdatedt() {
         return updatedt;
     }
 
-    public void setupdatedt(String updatedt) {
+    public void setUpdatedt(String updatedt) {
         this.updatedt = updatedt;
     }
 
@@ -89,7 +89,7 @@ public class ApiInfoBean {
         return "ApiInfoBean{" +
                 "id=" + id +
                 ", pid=" + pid +
-                ", porjectname='" + porjectname + '\'' +
+                ", projectname='" + projectname + '\'' +
                 ", name='" + name + '\'' +
                 ", hostname='" + hostname + '\'' +
                 ", path='" + path + '\'' +
@@ -98,7 +98,6 @@ public class ApiInfoBean {
                 ", updatedt='" + updatedt + '\'' +
                 '}';
     }
-
 
     public ApiInfoBean() {
         super();

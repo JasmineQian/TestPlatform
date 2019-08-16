@@ -20,84 +20,116 @@ public class ApiCaseBean {
     private String updatedt;
     private int casetype_id;
 
-    public String gettaskname() {
-        return taskname;
-    }
-
-    public void settaskname(String taskname) {
-        this.taskname = taskname;
-    }
-
-    public int getnum() {
+    public int getNum() {
         return num;
     }
 
-    public void setnum(int num) {
+    public void setNum(int num) {
         this.num = num;
     }
 
-    public int gettaskid() {
+    public int getPid() {
+        return pid;
+    }
+
+    public void setPid(int pid) {
+        this.pid = pid;
+    }
+
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
+    public int getTaskid() {
         return taskid;
     }
 
-    public void settaskid(int taskid) {
+    public void setTaskid(int taskid) {
         this.taskid = taskid;
     }
 
-    public String getname() {
+    public String getTaskname() {
+        return taskname;
+    }
+
+    public void setTaskname(String taskname) {
+        this.taskname = taskname;
+    }
+
+    public String getName() {
         return name;
     }
 
-    public void setname(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getbody() {
+    public String getBody() {
         return body;
     }
 
-    public void setbody(String body) {
+    public void setBody(String body) {
         this.body = body;
     }
 
-    public String getasseertion() {
+    public String getAsseertion() {
         return asseertion;
     }
 
-    public void setasseertion(String asseertion) {
+    public void setAsseertion(String asseertion) {
         this.asseertion = asseertion;
     }
 
-    public String getpriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setpriority(String priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 
-    public int getpriorityid() {
+    public int getPriorityid() {
         return priorityid;
     }
 
-    public void setpriorityid(int priorityid) {
+    public void setPriorityid(int priorityid) {
         this.priorityid = priorityid;
     }
 
-    public int getpassid() {
+    public int getPassid() {
         return passid;
     }
 
-    public void setpassid(int passid) {
+    public void setPassid(int passid) {
         this.passid = passid;
     }
 
-    public String getpassinfo() {
+    public String getPassinfo() {
         return passinfo;
     }
 
-    public void setpassinfo(String passinfo) {
+    public void setPassinfo(String passinfo) {
         this.passinfo = passinfo;
+    }
+
+    public int getDeleteflag() {
+        return deleteflag;
+    }
+
+    public void setDeleteflag(int deleteflag) {
+        this.deleteflag = deleteflag;
+    }
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
     }
 
     public String getCreatedt() {
@@ -116,43 +148,14 @@ public class ApiCaseBean {
         this.updatedt = updatedt;
     }
 
-    public int getdeleteflag() {
-        return deleteflag;
+    public int getCasetype_id() {
+        return casetype_id;
     }
-
-    public void setdeleteflag(int deleteflag) {
-        this.deleteflag = deleteflag;
-    }
-
-    public String getmemo() {
-        return memo;
-    }
-
-    public void setmemo(String memo) {
-        this.memo = memo;
-    }
-
-    public int getpid() {
-        return pid;
-    }
-
-    public void setpid(int pid) {
-        this.pid = pid;
-    }
-
-    public String getprojectname() {
-        return projectname;
-    }
-
-    public void setprojectname(String projectname) {
-        this.projectname = projectname;
-    }
-
-    public int getCasetype_id() {return casetype_id;}
 
     public void setCasetype_id(int casetype_id) {
         this.casetype_id = casetype_id;
     }
+
 
     @Override
     public String toString() {

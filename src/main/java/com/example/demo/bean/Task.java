@@ -1,8 +1,5 @@
 package com.example.demo.bean;
 
-import io.swagger.annotations.ApiModel;
-
-@ApiModel(value="任务的实体类",description = "这是任务Task对象")
 public class Task {
 
     private int taskid;

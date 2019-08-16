@@ -60,11 +60,11 @@ public class ApiVar2CaseController {
             body = jsonObject.toString();
             System.out.println(body);
             ApiCaseBean apiCaseBean = new ApiCaseBean();
-            apiCaseBean.settaskid(taskid);
-            apiCaseBean.setname(var);
-            apiCaseBean.setbody(body);
-            apiCaseBean.setasseertion(null);
-            apiCaseBean.setpriorityid(3);
+            apiCaseBean.setTaskid(taskid);
+            apiCaseBean.setName(var);
+            apiCaseBean.setBody(body);
+            apiCaseBean.setAsseertion(null);
+            apiCaseBean.setPriorityid(3);
             apiCaseBean.setCasetype_id(1);
 
             int count = apiCaseService.add(apiCaseBean);
@@ -107,11 +107,11 @@ public class ApiVar2CaseController {
 
             body = jsonObject.toString();
             ApiCaseBean apiCaseBean = new ApiCaseBean();
-            apiCaseBean.settaskid(taskid);
-            apiCaseBean.setname(var);
-            apiCaseBean.setbody(body);
-            apiCaseBean.setasseertion(null);
-            apiCaseBean.setpriorityid(3);
+            apiCaseBean.setTaskid(taskid);
+            apiCaseBean.setName(var);
+            apiCaseBean.setBody(body);
+            apiCaseBean.setAsseertion(null);
+            apiCaseBean.setPriorityid(3);
             apiCaseBean.setCasetype_id(2);
 
             int count = apiCaseService.add(apiCaseBean);
@@ -160,11 +160,11 @@ public class ApiVar2CaseController {
 
             body = jsonObject.toString();
             ApiCaseBean apiCaseBean = new ApiCaseBean();
-            apiCaseBean.settaskid(taskid);
-            apiCaseBean.setname(var);
-            apiCaseBean.setbody(body);
-            apiCaseBean.setasseertion(null);
-            apiCaseBean.setpriorityid(3);
+            apiCaseBean.setTaskid(taskid);
+            apiCaseBean.setName(var);
+            apiCaseBean.setBody(body);
+            apiCaseBean.setAsseertion(null);
+            apiCaseBean.setPriorityid(3);
             apiCaseBean.setCasetype_id(3);
 
             int count = apiCaseService.add(apiCaseBean);

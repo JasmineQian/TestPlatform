@@ -1,8 +1,5 @@
 package com.example.demo.bean;
 
-import io.swagger.annotations.ApiModel;
-
-@ApiModel(value="测试类型的实体类",description = "这是测试类型对象")
 public class TestType {
 
     private long id;

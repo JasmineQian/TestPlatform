@@ -30,36 +30,36 @@
                     <div class="table-responsive">
                         <table border="1" class="table table-striped table-bordered table-hover">
                             <form th:action="@{/apiInfoUpdate}" method="post">
-                                <input type="hidden" name="api_pid" th:value="${api.api_pid}"/>
-                                <input type="hidden" name="api_id" th:value="${api.api_id}"/>
+                                <input type="hidden" name="pid" th:value="${api.id}"/>
+                                <input type="hidden" name="id" th:value="${api.id}"/>
                             <tr>
                                 <td>API_ID</td>
-                                <td input="text" th:text="${api.api_id}"></td>
+                                <td input="text" th:text="${api.id}"></td>
                             </tr>
                             <tr>
                                 <td>项目名称</td>
-                                <td input="text" name = "api_porjectname" th:text="${api.api_porjectname}"></td>
+                                <td input="text" name = "porjectname" th:text="${api.projectname}"></td>
                             </tr>
                             <tr>
                                 <td>接口名称</td>
-                                <td><input type="text" name = "api_name" th:value="${api.api_name}" autocomplete="off"></td>
+                                <td><input type="text" name = "name" th:value="${api.name}" autocomplete="off"></td>
                             </tr>
                             <tr>
                                 <td>接口Hostname</td>
-                                <td><input type="text" name ="api_hostname"  th:value="${api.api_hostname}" autocomplete="off"></td>
+                                <td><input type="text" name ="hostname"  th:value="${api.hostname}" autocomplete="off"></td>
                             </tr>
                             <tr>
                                 <td>接口路径</td>
-                                <td><input type="text" name = "api_path" th:value="${api.api_path}" autocomplete="off"></td>
+                                <td><input type="text" name = "path" th:value="${api.path}" autocomplete="off"></td>
                             </tr>
                             <tr>
                                 <td>详细描述</td>
-                                <td><textarea name="api_memo" rows="10" th:text="${api.api_memo}"
+                                <td><textarea name="memo" rows="10" th:text="${api.memo}"
                                               style="margin: 0px; width: 1000px;"></textarea></td>
                             </tr>
                             <tr>
                                 <td><input type="submit" value="确认修改" class="btn btn-info"></td>
-                                <td><a th:href="@{/findApiById(api=${api.api_id})}" input="button" class="btn btn-info">回到接口信息页面</a>
+                                <td><a th:href="@{/findApiById(api=${api.id})}" input="button" class="btn btn-info">回到接口信息页面</a>
                                 </td>
                             </tr>
                         </table>

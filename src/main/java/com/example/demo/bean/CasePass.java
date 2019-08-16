@@ -1,13 +1,9 @@
 package com.example.demo.bean;
 
-import io.swagger.annotations.ApiModelProperty;
 
 public class CasePass {
 
-    @ApiModelProperty(value="测试用例通过的ID", example="1")
     private long id;
-
-    @ApiModelProperty(value="测试用例通过的描述", example="高")
     private String name;
 
     public long getId() {

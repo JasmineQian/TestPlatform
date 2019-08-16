@@ -33,25 +33,25 @@
                             <tr>
                                 <td>项目名称</td>
                            <td>
-                            <select name="api_pid">
+                            <select name="pid">
                                 <option th:each="projects:${projects}" th:value="${projects.pid}"
                                         th:text="${projects.pname}"></option>
                             </select></td>
                             <tr>
                                 <td>接口名称</td>
-                                <td><input type="text" autocomplete="off" name="api_name" th:required="请输入接口名称"></td>
+                                <td><input type="text" autocomplete="off" name="name" th:required="请输入接口名称"></td>
                             </tr>
                             <tr>
                                 <td>接口Hostname</td>
-                                <td><input type="text" autocomplete="off" name="api_hostname" th:required="请输入接口Hostname"></td>
+                                <td><input type="text" autocomplete="off" name="hostname" th:required="请输入接口Hostname"></td>
                             </tr>
                             <tr>
                                 <td>接口路径</td>
-                                <td><input type="text" autocomplete="off" name="api_path" th:required="请输入接口路径"></td>
+                                <td><input type="text" autocomplete="off" name="path" th:required="请输入接口路径"></td>
                             </tr>
                             <tr>
                                 <td>详细描述</td>
-                                <td><textarea rows="10" name="api_memo"
+                                <td><textarea rows="10" name="memo"
                                               style="margin: 0px; width: 1000px;"></textarea></td>
                             </tr>
                                 <tr>

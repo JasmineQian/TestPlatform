@@ -13,26 +13,26 @@ public class ApiInfoRowMapper implements RowMapper<ApiInfoBean> {
     public ApiInfoBean mapRow(ResultSet resultSet, int i) throws SQLException {
         //此处要使用表中的字段，不能使用属性
 
-        int id = resultSet.getInt("ID");
-        int pid = resultSet.getInt("PID");
-        String projectname = resultSet.getString("PROJECT_NAME");
-        String name = resultSet.getString("NAME");
-        String hostname = resultSet.getString("HOSTNAME");
-        String path = resultSet.getString("PATH");
-        String memo = resultSet.getString("MEMO");
-        String createdt = resultSet.getString("CREATEDT");
-        String updatedt = resultSet.getString("UPDATEDT");
+        int id = resultSet.getInt("api_id");
+        int pid = resultSet.getInt("api_pid");
+        String projectname = resultSet.getString("project_name");
+        String name = resultSet.getString("api_name");
+        String hostname = resultSet.getString("api_hostname");
+        String path = resultSet.getString("api_path");
+        String memo = resultSet.getString("api_memo");
+        String createdt = resultSet.getString("api_createdt");
+        String updatedt = resultSet.getString("api_updatedt");
 
         ApiInfoBean apiInfoBean = new ApiInfoBean();
-        apiInfoBean.setid(id);
-        apiInfoBean.setpid(pid);
-        apiInfoBean.setporjectname(projectname);
-        apiInfoBean.setname(name);
-        apiInfoBean.sethostname(hostname);
-        apiInfoBean.setpath(path);
-        apiInfoBean.setmemo(memo);
-        apiInfoBean.setcreatdt(createdt);
-        apiInfoBean.setupdatedt(updatedt);
+        apiInfoBean.setId(id);
+        apiInfoBean.setPid(pid);
+        apiInfoBean.setProjectname(projectname);
+        apiInfoBean.setName(name);
+        apiInfoBean.setHostname(hostname);
+        apiInfoBean.setPath(path);
+        apiInfoBean.setMemo(memo);
+        apiInfoBean.setCreatdt(createdt);
+        apiInfoBean.setUpdatedt(updatedt);
         return apiInfoBean;
     }
 }

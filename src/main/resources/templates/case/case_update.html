@@ -30,63 +30,63 @@
                     <div class="table-responsive">
                         <table border="1" class="table table-striped table-bordered table-hover">
                             <form th:action="@{/UpdateCaseById}" method="post">
-                                <input type="hidden" name="case_id" th:value="${cc.case_id}"/>
-                                <input type="hidden" name="case_taskid" th:value="${cc.case_taskid}"/>
+                                <input type="hidden" name="id" th:value="${cc.id}"/>
+                                <input type="hidden" name="taskid" th:value="${cc.taskid}"/>
                                 <tr>
                                     <td>Case任务ID</td>
-                                    <td input="text"  th:text="${cc.case_taskid}"></td>
+                                    <td input="text"  th:text="${cc.taskid}"></td>
                                 </tr>
                                 <tr>
                                     <td>Case任务名称</td>
-                                    <td input="text"  th:text="${cc.case_taskname}"></td>
+                                    <td input="text"  th:text="${cc.taskname}"></td>
                                 </tr>
                                 <tr>
                                     <td>Case的序号</td>
-                                    <td><input name= "case_num" th:value="${cc.case_num}"></td>
+                                    <td><input name= "num" th:value="${cc.num}"></td>
                                 </tr>
                                 <tr>
-                                    <td>case_pirority</td>
-                                    <td><select name="case_pirority" th:value="${cc.case_pirority}" selected="selected">
+                                    <td>pirority</td>
+                                    <td><select name="pirority" th:value="${cc.pirority}" selected="selected">
                                         <option th:each="pp:${caseProirities}" th:value="${pp.id}"
                                                 th:text="${pp.name}"
-                                                th:selected="${pp.id}==${cc.case_pirority}"></option>
+                                                th:selected="${pp.id}==${cc.pirority}"></option>
                                     </select></td>
                                 </tr>
                                 <tr>
                                     <td>Case名称</td>
-                                    <td><input maxlength="40" name = "case_name" th:value="${cc.case_name}"></td>
+                                    <td><input maxlength="40" name = "name" th:value="${cc.name}"></td>
                                 </tr>
                                 <tr>
-                                    <td>case_precondition</td>
-                                    <td><textarea name= "case_precondition" rows="10" th:text="${cc.case_precondition}"
+                                    <td>precondition</td>
+                                    <td><textarea name= "precondition" rows="10" th:text="${cc.precondition}"
                                         style="margin: 0px; width: 1000px;"></textarea></td></td>
                                </tr>
                                 <tr>
-                                    <td>case_assertion</td>
-                                    <td><textarea name= "case_assertion" rows="10" th:text="${cc.case_assertion}"
+                                    <td>assertion</td>
+                                    <td><textarea name= "assertion" rows="10" th:text="${cc.assertion}"
                                                   style="margin: 0px; width: 1000px;"></textarea></td></td>
                                 </tr>
                                 <tr>
                                     <td>是否通过</td>
-                                    <td><select name="case_pass_flag" th:value="${cc.case_pass_flag}" selected="selected">
+                                    <td><select name="pass_flag" th:value="${cc.pass_flag}" selected="selected">
                                         <option th:each="pp:${casePasses}" th:value="${pp.id}"
                                                 th:text="${pp.name}"
-                                                th:selected="${pp.id}==${cc.case_pass_flag}"></option>
+                                                th:selected="${pp.id}==${cc.pass_flag}"></option>
                                     </select></td>
                                 </tr>
                                 <tr>
-                                    <td>case_body</td>
-                                    <td><textarea name= "case_body" rows="10" th:text="${cc.case_body}"
+                                    <td>body</td>
+                                    <td><textarea name= "body" rows="10" th:text="${cc.body}"
                                                   style="margin: 0px; width: 1000px;"></textarea></td>
                                 </tr>
                                 <tr>
                                     <td>任务备注</td>
-                                    <td><textarea name= "case_memo" rows="10"  th:text="${cc.case_memo}"
+                                    <td><textarea name= "memo" rows="10"  th:text="${cc.memo}"
                                                   style="margin: 0px; width: 1000px;"></textarea></td>
                                 </tr>
                                 <tr>
                                     <td><input type="submit" value="确认修改" class="btn btn-info"></td>
-                                    <td><a th:href="@{/findCaseByTaskId(taskId=${cc.case_taskid})}" input="button" class="btn btn-info">回到首页</a>
+                                    <td><a th:href="@{/findCaseByTaskId(taskId=${cc.taskid})}" input="button" class="btn btn-info">回到首页</a>
                                     </td>
                                 </tr>
                             </form>

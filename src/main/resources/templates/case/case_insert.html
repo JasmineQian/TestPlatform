@@ -32,7 +32,7 @@
                             <form th:action="@{/insertCase}" method="post">
                                 <tr>
                                     <td>测试任务号码</td>
-                                    <td><input type="text" name ="case_taskid"  th:value="${taskId}"></td>
+                                    <td><input type="text" name ="taskid"  th:value="${taskId}"></td>
                                 </tr>
                                 <tr>
                                     <td>Case所在项目的名称</td>
@@ -44,43 +44,43 @@
                                 </tr>
                                 <tr>
                                     <td>Case的序号(*)</td>
-                                    <td><input type="text" name= "case_num"></td>
+                                    <td><input type="text" name= "num"></td>
                                 </tr>
                                 <tr>
                                     <td>Case的优先级</td>
                                     <td>
-                                    <select name="case_pirority">
+                                    <select name="pirority">
                                         <option th:each="case:${caseProirities}" th:value="${case.id}"
                                                 th:text="${case.name}"></option>
                                     </select></td>
                                 </tr>
                                 <tr>
                                     <td>Case任务名称</td>
-                                    <td><input type="text" name="case_name"></td>
+                                    <td><input type="text" name="name"></td>
                                 </tr>
                                 <tr>
                                     <td>case_precondition</td>
-                                    <td><input type="text" name="case_precondition"></td>
+                                    <td><input type="text" name="precondition"></td>
                                 </tr>
                                 <tr>
                                     <td>是否通过</td>
                                     <td>
-                                    <select name="case_pass_flag">
+                                    <select name="pass_flag">
                                         <option th:each="casePasses:${casePasses}" th:value="${casePasses.id}"
                                                 th:text="${casePasses.name}"></option>
                                     </select></td>
                                 </tr>
                                 <tr>
                                     <td>case_body</td>
-                                    <td><textarea rows="10" type="text" name="case_body" style="margin: 0px; width: 1005px; height: 84px;"></textarea></td>
+                                    <td><textarea rows="10" type="text" name="body" style="margin: 0px; width: 1005px; height: 84px;"></textarea></td>
                                 </tr>
                                 <tr>
                                     <td>case_assertion</td>
-                                    <td><textarea rows="10" type="text" name="case_assertion" style="margin: 0px; width: 1005px; height: 84px;"></textarea></td>
+                                    <td><textarea rows="10" type="text" name="assertion" style="margin: 0px; width: 1005px; height: 84px;"></textarea></td>
                                 </tr>
                                 <tr>
                                     <td>case_memo</td>
-                                    <td><textarea rows="10" type="text" name="case_memo" style="margin: 0px; width: 1005px; height: 84px;"></textarea></td>
+                                    <td><textarea rows="10" type="text" name="memo" style="margin: 0px; width: 1005px; height: 84px;"></textarea></td>
                                 </tr>
 
                                 <tr>

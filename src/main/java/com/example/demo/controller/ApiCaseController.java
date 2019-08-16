@@ -23,7 +23,6 @@ public class ApiCaseController {
     @Autowired
     private ApiInfoService apiInfoService;
 
-
     @Autowired
     private ApiCaseService apiCaseService;
 

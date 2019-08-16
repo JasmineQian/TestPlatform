@@ -26,10 +26,6 @@ public class ApiVarController {
     @Autowired
     private ApiInfoService apiInfoService;
 
-
-    @Autowired
-    private ApiCaseService apiCaseService;
-
     @Autowired
     private ApiVarService apiVarService;
 

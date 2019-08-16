@@ -91,16 +91,16 @@
                         <th>操作按钮</th>
                     </tr>
                     <tr th:each="api:${lists}" display="inline-block">
-                        <td th:text="${api.api_porjectname}"></td>
+                        <td th:text="${api.projectname}"></td>
                         <td>API功能测试</td>
-                        <td th:text="${api.api_name}"></td>
-                        <td th:text="${api.api_hostname}"></td>
-                        <td class="wordtoolong" th:text="${api.api_memo}">
+                        <td th:text="${api.name}"></td>
+                        <td th:text="${api.hostname}"></td>
+                        <td class="wordtoolong" th:text="${api.memo}">
                         </td>
                         <td>
-                            <a th:href="@{/findApiById(api=${api.api_id})}" input="button"
+                            <a th:href="@{/findApiById(api=${api.id})}" input="button"
                                class="btn btn-info">查看</a>
-                            <a th:href="@{/delApiById(api=${api.api_id})}" input="button" class="btn btn-danger"
+                            <a th:href="@{/delApiById(api=${api.id})}" input="button" class="btn btn-danger"
                                onclick="alert('确认删除API接口信息吗？')">删除</a>
                         </td>
                     </tr>

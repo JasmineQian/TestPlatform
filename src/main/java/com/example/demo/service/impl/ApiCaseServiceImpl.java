@@ -26,17 +26,17 @@ public class ApiCaseServiceImpl implements ApiCaseService {
 
     @Override
     public int add(ApiCaseBean apiCaseBean) {
-        int api_id = apiCaseBean.gettaskid();
-        String name = apiCaseBean.getname();
-        String body = apiCaseBean.getbody();
-        String asser = apiCaseBean.getasseertion();
-        int pirority = apiCaseBean.getpriorityid();
+        int api_id = apiCaseBean.getTaskid();
+        String name = apiCaseBean.getName();
+        String body = apiCaseBean.getBody();
+        String asser = apiCaseBean.getAsseertion();
+        int pirority = apiCaseBean.getPriorityid();
         int typeid = apiCaseBean.getCasetype_id();
         Date dt = new Date();
         DateFormat bf = new SimpleDateFormat(dateformat);
 
         String date = bf.format(dt);
-        String sql = "insert qa_apicase(api_id,name,body,asserction,priorityid,typeid,createdt,updatedt)\n" +
+        String sql = "insert qa_apicase(api_id,apicase_name,apicase_body,apicase_asserction,apicase_priorityid,apicase_typeid,apicase_createdt,apicase_updatedt)\n" +
                 "values(?,?,?,?,?,?,?,?) \n";
         return jdbcTemplate.update(sql, api_id,name, body, asser, pirority, typeid,date, date);
 
@@ -44,43 +44,43 @@ public class ApiCaseServiceImpl implements ApiCaseService {
 
     @Override
     public List<ApiCaseBean> findApiCaseById(int apiID) {
-        String sql = "select  id,api_pid,project_name,qa_apicase.api_id as api_id,api_name,name,body,typeid,\n" +
-                "asserction,priorityid,pirority_name,passid,casepassflag_name,memo,createdt,updatedt\n" +
+        String sql = "select  apicase_id,api_pid,project_name,qa_apicase.api_id as api_id,api_name,apicase_name,apicase_body,apicase_typeid,\n" +
+                "apicase_asserction,apicase_priorityid,pirority_name,apicase_passid,casepassflag_name,apicase_memo,apicase_createdt,apicase_updatedt\n" +
                 "from qa_apicase join qa_api on qa_apicase.api_id = qa_api.api_id\n" +
                 "join qa_project on project_id = api_pid\n" +
-                "join qa_pirority on priorityid = pirority_id\n" +
-                "left join qa_casepassflag on casepassflag_id = passid\n" +
-                "where deleted_flag = 0 and qa_apicase.api_id = ?";
+                "join qa_pirority on apicase_priorityid = pirority_id\n" +
+                "left join qa_casepassflag on casepassflag_id = apicase_passid\n" +
+                "where apicase_deleted_flag = 0 and qa_apicase.api_id = ?";
         List<ApiCaseBean> lists =jdbcTemplate.query(sql,new ApiCaseRowMapper(),apiID);
         return lists;
     }
 
     @Override
     public ApiCaseBean findApiCase(int id) {
-        String sql= "select  id,api_pid,project_name,qa_apicase.api_id as api_id,api_name,name,body,typeid,\n" +
-                "asserction,priorityid,pirority_name,passid,casepassflag_name,memo,createdt,updatedt\n" +
+        String sql= "select  apicase_id,api_pid,project_name,qa_apicase.api_id as api_id,api_name,apicase_name,apicase_body,apicase_typeid,\n" +
+                "apicase_asserction,apicase_priorityid,pirority_name,apicase_passid,casepassflag_name,apicase_memo,apicase_createdt,apicase_updatedt\n" +
                 "from qa_apicase join qa_api on qa_apicase.api_id = qa_api.api_id\n" +
                 "join qa_project on project_id = api_pid\n" +
-                "join qa_pirority on priorityid = pirority_id\n" +
-                "left join qa_casepassflag on casepassflag_id = passid\n" +
-                "where deleted_flag = 0\n" +
-                "and id = ?";
+                "join qa_pirority on apicase_priorityid = pirority_id\n" +
+                "left join qa_casepassflag on casepassflag_id = apicase_passid\n" +
+                "where apicase_deleted_flag = 0\n" +
+                "and apicase_id = ?";
         ApiCaseBean apiCaseBean = jdbcTemplate.queryForObject(sql,new ApiCaseRowMapper(),id);
         return apiCaseBean;
     }
 
     @Override
     public int update(ApiCaseBean apiCaseBean) {
-        String sql="update qa_apicase set name=?,body=?, asserction=?, priorityid=?, passid=?,\n" +
-                "memo= ?, updatedt =? where id = ? and api_id= ?";
-        int id = apiCaseBean.getnum();
-        int apiid =apiCaseBean.gettaskid();
-        String casename = apiCaseBean.getname();
-        String body = apiCaseBean.getbody();
-        String asserction  =apiCaseBean.getasseertion();
-        int priority = apiCaseBean.getpriorityid();
-        int pass = apiCaseBean.getpassid();
-        String memo = apiCaseBean.getmemo();
+        String sql="update qa_apicase set apicase_name=?,apicase_body=?, apicase_asserction=?, apicase_priorityid=?, apicase_passid=?,\n" +
+                "apicase_memo= ?, apicase_updatedt =? where apicase_id = ? and api_id= ?";
+        int id = apiCaseBean.getNum();
+        int apiid =apiCaseBean.getTaskid();
+        String casename = apiCaseBean.getName();
+        String body = apiCaseBean.getBody();
+        String asserction  =apiCaseBean.getAsseertion();
+        int priority = apiCaseBean.getPriorityid();
+        int pass = apiCaseBean.getPassid();
+        String memo = apiCaseBean.getMemo();
         Date dt = new Date();
         DateFormat bf = new SimpleDateFormat(dateformat);
         String date = bf.format(dt);
@@ -94,7 +94,7 @@ public class ApiCaseServiceImpl implements ApiCaseService {
 
     @Override
     public int deleteByTypeId(int id, int typeid) {
-        String sql="delete from qa_apicase where api_id= ? and typeid = ?";
+        String sql="delete from qa_apicase where api_id= ? and apicase_typeid = ?";
         int count =jdbcTemplate.update(sql, id,typeid);
         return 0;
     }
@@ -102,7 +102,7 @@ public class ApiCaseServiceImpl implements ApiCaseService {
 
     @Override
     public int delete(int id) {
-        String sql = "update qa_apicase set deleted_flag = 1 , updatedt = ? where id = ? ";
+        String sql = "update qa_apicase set apicase_deleted_flag = 1 , apicase_updatedt = ? where apicase_id = ? ";
         Date dt = new Date();
         DateFormat bf = new SimpleDateFormat(dateformat);
         String date = bf.format(dt);

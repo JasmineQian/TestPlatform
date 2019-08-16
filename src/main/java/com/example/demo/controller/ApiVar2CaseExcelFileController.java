@@ -51,7 +51,7 @@ public class ApiVar2CaseExcelFileController {
                 "测试等级", "是否通过", "备注", "创建时间", "更新时间"};
 
 
-        String name = infoBean.getname() + "接口的自动化测试用例";
+        String name = infoBean.getName() + "接口的自动化测试用例";
         //excel文件名
         String fileName = name + ".xls";
 
@@ -92,15 +92,15 @@ public class ApiVar2CaseExcelFileController {
         for (int i = 0; i < cases.size(); i++) {
             content[i] = new String[title.length];
             ApiCaseBean obj = cases.get(i);
-            content[i][0] = String.valueOf(obj.getnum());
-            content[i][1] = obj.getprojectname();
-            content[i][2] = obj.gettaskname();
-            content[i][3] = obj.getname();
-            content[i][4] = obj.getbody();
-            content[i][5] = obj.getasseertion();
-            content[i][6] = obj.getpriority();
-            content[i][7] = obj.getpassinfo();
-            content[i][8] = obj.getmemo();
+            content[i][0] = String.valueOf(obj.getNum());
+            content[i][1] = obj.getProjectname();
+            content[i][2] = obj.getTaskname();
+            content[i][3] = obj.getName();
+            content[i][4] = obj.getBody();
+            content[i][5] = obj.getAsseertion();
+            content[i][6] = obj.getPriority();
+            content[i][7] = obj.getPassinfo();
+            content[i][8] = obj.getMemo();
             content[i][9] = obj.getCreatedt();
             content[i][10] = obj.getUpdatedt();
 

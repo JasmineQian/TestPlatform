@@ -1,8 +1,5 @@
 package com.example.demo.bean;
 
-import io.swagger.annotations.ApiModel;
-
-@ApiModel(value="Project的实体类",description = "这是项目Project对象")
 public class Project {
 
     private long pid;
