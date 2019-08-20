@@ -27,7 +27,6 @@ public class HomeController {
     @GetMapping("/guide")
     public String guide() {return "about/guide";}
 
-
     @GetMapping("/donate")
     public String donate() {return "about/donate";}
 
